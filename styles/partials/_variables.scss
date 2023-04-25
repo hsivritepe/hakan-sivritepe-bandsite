@@ -1,3 +1,8 @@
+@function toRem($value) {
+    $remValue: calc($value / 16) + rem;
+    @return $remValue;
+}
+
 //FONT
 @font-face {
     font-family: 'Avenir Next Regular';
@@ -27,3 +32,42 @@ $primary-color-white: #ffffff;
 $secondary-color-darkblack: #000000;
 $secondary-color-mercury: #e1e1e1;
 $secondary-color-alabaster: #fafafa;
+
+// FONT SIZES
+$font-mobile-page-header-px: 24;
+$font-mobile-section-header-px: 24;
+$font-mobile-subheader-px: 14;
+$font-mobile-body-px: 13;
+$font-mobile-footer-px: 13;
+$font-mobile-label-button-px: 10;
+
+$font-tablet-page-header-px: 60;
+$font-tablet-section-header-px: 36;
+$font-tablet-subheader-px: 24;
+$font-tablet-body-px: 14;
+$font-tablet-footer-px: 14;
+$font-tablet-label-button-px: 12;
+
+// PADDING
+$padding-mobile-before-headlines-px: 24;
+$padding-mobile-after-headlines-px: 16;
+$padding-mobile-between-components-px: 16;
+
+$padding-tablet-before-headlines-px: 48;
+$padding-tablet-after-headlines-px: 36;
+$padding-tablet-between-components-px: 36;
+
+// LINE HEIGHT
+$line-height-mobile-page-header-px: 32;
+$line-height-mobile-section-header-px: 32;
+$line-height-mobile-subheader-px: 22;
+$line-height-mobile-body-px: 18;
+$line-height-mobile-footer-px: 18;
+$line-height-mobile-label-button-px: 20;
+
+$line-height-tablet-page-header-px: 68;
+$line-height-tablet-section-header-px: 44;
+$line-height-tablet-subheader-px: 32;
+$line-height-tablet-body-px: 22;
+$line-height-tablet-footer-px: 22;
+$line-height-tablet-label-button-px: 20;
