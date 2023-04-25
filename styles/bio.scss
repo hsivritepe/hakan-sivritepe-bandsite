@@ -1,0 +1,128 @@
+@use 'partials/variables' as *;
+@use 'partials/mixins' as *;
+
+body {
+    font-family: 'Avenir Next Regular', sans-serif;
+}
+
+.navigation {
+    background-color: $primary-color-black;
+
+    @include tablet {
+        padding: 1rem 1rem 0;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem 0 0;
+
+        @include tablet {
+            flex-direction: row;
+        }
+        @include desktop {
+            flex-direction: row;
+        }
+    }
+    &__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 0;
+        padding: 0;
+    }
+    &__item {
+        list-style-type: none;
+        padding-bottom: 1.25rem;
+        width: 100%;
+
+        @include tablet {
+            margin: 0 1rem;
+        }
+
+        &--active {
+            border-bottom: 4px solid $primary-color-white;
+            font-family: 'Avenir Next Demi', sans-serif;
+        }
+    }
+    &__link {
+        color: $primary-color-white;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    &__logo {
+        @include tablet {
+            margin: 0 1rem 0 0;
+        }
+    }
+}
+
+.banner {
+    background-image: url('/assets/images/hero-bio.jpg');
+    background-position: center;
+    background-size: cover;
+    min-height: 50vw;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+
+    &__title {
+        font-family: 'Avenir Next Demi', sans-serif;
+        font-size: 2.25rem;
+        color: $primary-color-white;
+    }
+}
+.footer {
+    background-color: $primary-color-black;
+    color: $primary-color-white;
+    line-height: 1.5rem;
+    padding: 1rem;
+
+    &__line {
+        @include tablet {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+        }
+    }
+    &__line--space-between {
+        @include tablet {
+            justify-content: space-between;
+        }
+        @include desktop {
+            justify-content: flex-start;
+        }
+    }
+    &__boxname {
+        @include desktop {
+            padding-right: 5rem;
+        }
+    }
+    &__social-media {
+        padding: 1.25rem 0 1.5rem;
+        img {
+            padding-right: 2rem;
+        }
+    }
+
+    &__title {
+        font-family: 'Avenir Next Demi', sans-serif;
+        font-size: 2rem;
+        margin: 0 0 1.35rem;
+
+        @include tablet {
+            padding-right: 2rem;
+            margin: 0 0 1rem;
+        }
+    }
+    &__name {
+        font-family: 'Avenir Next Demi', sans-serif;
+        margin: 0 0 1.35rem;
+    }
+    &__address,
+    &__email {
+        margin: 0 0 1.35rem;
+    }
+}
