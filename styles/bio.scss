@@ -18,6 +18,9 @@ body {
     @include tablet {
         padding: 0.5rem toRem($padding-tablet-between-components-px) 0;
     }
+    @include desktop {
+        padding: 1rem toRem($padding-desktop-between-components-px) 0;
+    }
 
     &__container {
         display: flex;
@@ -50,7 +53,7 @@ body {
         }
 
         &--active {
-            border-bottom: 4px solid $primary-color-white;
+            border-bottom: 5px solid $primary-color-white;
             font-family: 'Avenir Next Demi', sans-serif;
         }
     }
@@ -73,10 +76,9 @@ body {
     background-blend-mode: multiply;
     background-position: center;
     background-size: cover;
-    min-height: 50vw;
+    min-height: 60vw;
     display: flex;
     align-items: center;
-    // padding-left: 1rem;
 
     &__title-page-header {
         font-family: 'Avenir Next Demi', sans-serif;
@@ -92,6 +94,11 @@ body {
                 toRem($padding-tablet-between-components-px)
                 toRem($padding-tablet-after-headlines-px);
         }
+        @include desktop {
+            padding: toRem($padding-desktop-before-headlines-px)
+                toRem($padding-desktop-between-components-px)
+                toRem($padding-desktop-after-headlines-px);
+        }
     }
 }
 .footer {
@@ -105,12 +112,40 @@ body {
         padding: 0 toRem($padding-tablet-between-components-px)
             toRem($padding-tablet-between-components-px);
     }
+    @include desktop {
+        padding: 0 toRem($padding-desktop-between-components-px)
+            toRem($padding-desktop-between-components-px);
+    }
 
     &__line {
+        display: flex;
+        flex-direction: column;
+
         @include tablet {
-            display: flex;
+            flex-direction: row;
             align-items: center;
-            padding: 1rem 0;
+            padding: 2rem 0 0.5rem 0;
+        }
+    }
+    &__logo {
+        width: 33vw;
+        padding: 2rem 0 1.5rem 0;
+
+        @include tablet {
+            width: 10vw;
+            padding: 0;
+        }
+    }
+    &__logo--tablet-disappear {
+        @include tablet {
+            display: none;
+        }
+    }
+    &__logo--mobile-disappear {
+        display: none;
+
+        @include tablet {
+            display: block;
         }
     }
     &__line--space-between {
@@ -119,6 +154,11 @@ body {
         }
         @include desktop {
             justify-content: flex-start;
+        }
+    }
+    &__line--nopadding {
+        @include tablet {
+            padding: 0;
         }
     }
     &__boxname {
@@ -136,11 +176,11 @@ body {
     &__title--section-header {
         font-family: 'Avenir Next Demi', sans-serif;
         font-size: toRem($font-mobile-section-header-px);
-        margin: toRem($padding-mobile-before-headlines-px) 0
-            toRem($padding-mobile-after-headlines-px) 0;
+        margin: 0;
+        padding: 2rem 0 0.5rem 0;
 
         @include tablet {
-            // padding-right: 2rem;
+            padding: 0;
             font-size: toRem($font-tablet-section-header-px);
             margin: 1rem 3rem 1.75rem 0;
         }
@@ -153,6 +193,9 @@ body {
     &__email {
         margin: 0 0 1.35rem;
     }
+    &__spacer {
+        flex-grow: 2;
+    }
 }
 
 .content {
@@ -160,7 +203,11 @@ body {
     line-height: toRem($line-height-mobile-body-px);
 
     @include tablet {
-        padding: 0 6.25rem;
+        padding: 0 10.25vw;
+        line-height: toRem($line-height-tablet-body-px);
+    }
+    @include desktop {
+        padding: 0 18.25vw;
         line-height: toRem($line-height-tablet-body-px);
     }
 
@@ -175,18 +222,23 @@ body {
             padding: toRem($padding-tablet-before-headlines-px) 0
                 toRem($padding-tablet-after-headlines-px) 0;
         }
+        @include desktop {
+            font-size: toRem($font-tablet-page-header-px);
+            padding: toRem($padding-desktop-before-headlines-px) 0
+                toRem($padding-desktop-after-headlines-px) 0;
+        }
     }
 
     &__image {
         width: 100%;
+        aspect-ratio: 16/9;
     }
 
     &__title-section-header {
         font-family: 'Avenir Next Demi', sans-serif;
         font-size: toRem($font-mobile-section-header-px);
         line-height: toRem($line-height-mobile-section-header-px);
-        padding: toRem($padding-mobile-before-headlines-px) 0
-            toRem($padding-mobile-after-headlines-px) 0;
+        padding: 2rem 0 1rem 0;
 
         @include tablet {
             margin-left: -3.25rem;
@@ -195,6 +247,10 @@ body {
             padding: toRem($padding-tablet-before-headlines-px) 0
                 toRem($padding-tablet-after-headlines-px) 0;
             line-height: toRem($line-height-tablet-section-header-px);
+        }
+        @include desktop {
+            padding: toRem($padding-desktop-before-headlines-px) 0
+                toRem($padding-desktop-after-headlines-px) 0;
         }
     }
 
@@ -210,6 +266,10 @@ body {
             padding: toRem($padding-tablet-before-headlines-px) 0
                 toRem($padding-tablet-after-headlines-px) 0;
         }
+        @include desktop {
+            padding: toRem($padding-desktop-before-headlines-px) 0
+                toRem($padding-desktop-after-headlines-px) 0;
+        }
     }
 }
 
@@ -218,8 +278,7 @@ body {
         font-family: 'Avenir Next Demi', sans-serif;
         font-size: toRem($font-mobile-quote-title-px);
         line-height: toRem($line-height-mobile-quote-title-px);
-        padding: toRem($padding-mobile-before-headlines-px) 0
-            toRem($padding-mobile-after-headlines-px) 0;
+        padding: 1rem 0 0.5rem 0;
 
         @include tablet {
             font-size: toRem($font-tablet-quote-title-px);
@@ -245,8 +304,7 @@ body {
     &__title {
         font-size: toRem($font-mobile-paragraph-title-px);
         font-family: 'Avenir Next Demi', sans-serif;
-        padding: toRem($padding-mobile-before-headlines-px) 0
-            toRem($padding-mobile-after-headlines-px) 0;
+        padding: 2rem 0 0.75rem 0;
 
         @include tablet {
             font-size: toRem($font-tablet-paragraph-title-px);
@@ -256,6 +314,8 @@ body {
 
     &__container {
         display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
 
         @include tablet {
             flex-direction: row;
@@ -275,6 +335,10 @@ body {
             toRem($padding-tablet-between-components-px);
         line-height: toRem($line-height-tablet-body-px);
     }
+    @include desktop {
+        padding: 0 toRem($padding-desktop-between-components-px)
+            toRem($padding-desktop-between-components-px);
+    }
 
     &__title-section-header {
         font-family: 'Avenir Next Demi', sans-serif;
@@ -287,6 +351,10 @@ body {
             padding: toRem($padding-tablet-before-headlines-px) 0
                 toRem($padding-tablet-after-headlines-px) 0;
         }
+        @include desktop {
+            padding: toRem($padding-desktop-before-headlines-px) 0
+                toRem($padding-desktop-after-headlines-px) 0;
+        }
     }
 
     &__container {
@@ -296,7 +364,7 @@ body {
 
         @include tablet {
             flex-direction: row;
-            gap: 2rem;
+            gap: 1.5rem;
             justify-content: center;
         }
     }

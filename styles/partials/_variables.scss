@@ -34,16 +34,16 @@ $secondary-color-mercury: #e1e1e1;
 $secondary-color-alabaster: #fafafa;
 
 // FONT SIZES
-$font-mobile-page-header-px: 32;
-$font-mobile-section-header-px: 24;
-$font-mobile-navigation-link-px: 20;
+$font-mobile-page-header-px: 36;
+$font-mobile-section-header-px: 28;
+$font-mobile-navigation-link-px: 21;
 $font-mobile-subheader-px: 18;
 $font-mobile-body-px: 16;
 $font-mobile-footer-px: 13;
 $font-mobile-label-button-px: 10;
-$font-mobile-paragraph-title-px: 16;
+$font-mobile-paragraph-title-px: 18;
 $font-mobile-quote-title-px: 18;
-$font-mobile-quote-author-px: 14;
+$font-mobile-quote-author-px: 18;
 
 $font-tablet-page-header-px: 60;
 $font-tablet-section-header-px: 36;
@@ -63,7 +63,11 @@ $padding-mobile-between-components-px: 16;
 
 $padding-tablet-before-headlines-px: 48;
 $padding-tablet-after-headlines-px: 36;
-$padding-tablet-between-components-px: 36;
+$padding-tablet-between-components-px: 56;
+
+$padding-desktop-before-headlines-px: 48;
+$padding-desktop-after-headlines-px: 36;
+$padding-desktop-between-components-px: 120;
 
 // LINE HEIGHT
 $line-height-mobile-page-header-px: 32;
