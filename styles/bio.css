@@ -10,6 +10,10 @@
   font-family: "Avenir Next Bold";
   src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype");
 }
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Avenir Next Regular", sans-serif;
   font-size: 1rem;
@@ -25,22 +29,10 @@ body {
 .navigation {
   background-color: #323232;
 }
-@media (min-width: 768px) {
-  .navigation {
-    padding: 0.5rem 3.5rem 0;
-  }
-}
-@media (min-width: 1280px) {
-  .navigation {
-    padding: 1rem 7.5rem 0;
-  }
-}
 .navigation__container {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  gap: 1rem;
-  padding: 1rem 0 0;
+  align-items: center;
 }
 @media (min-width: 768px) {
   .navigation__container {
@@ -55,33 +47,67 @@ body {
 .navigation__list {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   margin: 0;
   padding: 0;
-}
-.navigation__item {
-  list-style-type: none;
-  padding-bottom: 1.25rem;
+  height: 100%;
   width: 100%;
 }
 @media (min-width: 768px) {
-  .navigation__item {
-    margin: 0 1rem;
+  .navigation__list {
+    width: unset;
   }
 }
+.navigation__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  width: 100%;
+}
 .navigation__item--active {
-  border-bottom: 5px solid #ffffff;
-  font-family: "Avenir Next Demi", sans-serif;
+  font-family: "Avenir Next Demi";
+  border-bottom: 3px solid #ffffff;
+}
+@media (min-width: 768px) {
+  .navigation__item {
+    margin: 0 0 0 4rem;
+  }
 }
 .navigation__link {
+  display: flex;
+  height: 100%;
   color: #ffffff;
   font-weight: bold;
   text-decoration: none;
-  font-size: 1.3125rem;
+  font-size: 1rem;
+  padding: 0 0 0.5rem 0;
+}
+@media (min-width: 768px) {
+  .navigation__link {
+    padding: 2rem 0;
+  }
+}
+.navigation__logo {
+  max-width: 120px;
+  max-height: 20px;
+}
+.navigation__logo--extrapadding {
+  margin-top: 1.25rem;
+}
+@media (min-width: 768px) {
+  .navigation__logo--extrapadding {
+    margin-top: 0;
+  }
 }
 @media (min-width: 768px) {
   .navigation__logo {
-    margin: 0 1rem 0 0;
+    margin-left: 3.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .navigation__logo {
+    margin-left: 7.5rem;
+    margin-right: 3rem;
   }
 }
 
@@ -113,6 +139,8 @@ body {
 }
 
 .footer {
+  display: flex;
+  flex-direction: column;
   background-color: #323232;
   color: #ffffff;
   line-height: 1.5rem;
@@ -120,33 +148,44 @@ body {
 }
 @media (min-width: 768px) {
   .footer {
-    padding: 0 3.5rem 3.5rem;
+    justify-content: space-evenly;
+    height: 25rem;
+    flex-direction: column;
+    padding: 0 3.5rem;
   }
 }
 @media (min-width: 1280px) {
   .footer {
-    padding: 0 7.5rem 7.5rem;
+    justify-content: flex-start;
+    padding: 0 7.5rem;
   }
 }
 .footer__line {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 @media (min-width: 768px) {
   .footer__line {
+    height: 9rem;
     flex-direction: row;
     align-items: center;
-    padding: 2rem 0 0.5rem 0;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__line {
+    justify-content: flex-start;
   }
 }
 .footer__logo {
-  width: 33vw;
-  padding: 2rem 0 1.5rem 0;
+  max-width: 7.5rem;
+  max-height: 1.25rem;
+  margin: 3rem 0 0.75rem 0;
 }
 @media (min-width: 768px) {
   .footer__logo {
-    width: 10vw;
     padding: 0;
+    margin: 0;
   }
 }
 @media (min-width: 768px) {
@@ -160,16 +199,6 @@ body {
 @media (min-width: 768px) {
   .footer__logo--mobile-disappear {
     display: block;
-  }
-}
-@media (min-width: 768px) {
-  .footer__line--space-between {
-    justify-content: space-between;
-  }
-}
-@media (min-width: 1280px) {
-  .footer__line--space-between {
-    justify-content: flex-start;
   }
 }
 @media (min-width: 768px) {

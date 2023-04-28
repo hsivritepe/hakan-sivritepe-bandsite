@@ -1,6 +1,10 @@
 @use 'partials/variables' as *;
 @use 'partials/mixins' as *;
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Avenir Next Regular', sans-serif;
     font-size: toRem($font-mobile-body-px);
@@ -15,19 +19,17 @@ body {
 .navigation {
     background-color: $primary-color-black;
 
-    @include tablet {
-        padding: 0.5rem toRem($padding-tablet-between-components-px) 0;
-    }
-    @include desktop {
-        padding: 1rem toRem($padding-desktop-between-components-px) 0;
-    }
+    // @include tablet {
+    //     padding: 0.5rem toRem($padding-tablet-between-components-px) 0;
+    // }
+    // @include desktop {
+    //     padding: 1rem toRem($padding-desktop-between-components-px) 0;
+    // }
 
     &__container {
         display: flex;
         flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-        padding: 1rem 0 0;
+        align-items: center;
 
         @include tablet {
             flex-direction: row;
@@ -39,33 +41,67 @@ body {
     &__list {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
         margin: 0;
         padding: 0;
-    }
-    &__item {
-        list-style-type: none;
-        padding-bottom: 1.25rem;
+        height: 100%;
         width: 100%;
 
         @include tablet {
-            margin: 0 1rem;
+            width: unset;
         }
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style-type: none;
+        width: 100%;
 
         &--active {
-            border-bottom: 5px solid $primary-color-white;
-            font-family: 'Avenir Next Demi', sans-serif;
+            font-family: 'Avenir Next Demi';
+            border-bottom: 3px solid $primary-color-white;
+        }
+        @include tablet {
+            margin: 0 0 0 4rem;
+            // margin: 0 1rem;
         }
     }
     &__link {
+        display: flex;
+        height: 100%;
         color: $primary-color-white;
         font-weight: bold;
         text-decoration: none;
         font-size: toRem($font-mobile-navigation-link-px);
+        padding: 0 0 0.5rem 0;
+
+        @include tablet {
+            padding: 2rem 0;
+            //margin: 0 toRem($padding-tablet-between-components-px);
+        }
+        @include desktop {
+            //margin: 0;
+        }
     }
     &__logo {
+        max-width: 120px;
+        max-height: 20px;
+
+        &--extrapadding {
+            margin-top: 1.25rem;
+
+            @include tablet {
+                margin-top: 0;
+            }
+        }
         @include tablet {
-            margin: 0 1rem 0 0;
+            margin-left: toRem($padding-tablet-between-components-px);
+        }
+        @include desktop {
+            margin-left: toRem(
+                $padding-desktop-between-components-px
+            );
+            margin-right: 3rem;
         }
     }
 }
@@ -102,6 +138,8 @@ body {
     }
 }
 .footer {
+    display: flex;
+    flex-direction: column;
     background-color: $primary-color-black;
     color: $primary-color-white;
     line-height: 1.5rem;
@@ -109,31 +147,38 @@ body {
         toRem($padding-mobile-between-components-px);
 
     @include tablet {
-        padding: 0 toRem($padding-tablet-between-components-px)
-            toRem($padding-tablet-between-components-px);
+        justify-content: space-evenly;
+        height: 25rem;
+        flex-direction: column;
+        padding: 0 toRem($padding-tablet-between-components-px);
     }
     @include desktop {
-        padding: 0 toRem($padding-desktop-between-components-px)
-            toRem($padding-desktop-between-components-px);
+        justify-content: flex-start;
+        padding: 0 toRem($padding-desktop-between-components-px);
     }
 
     &__line {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
 
         @include tablet {
+            height: 9rem;
             flex-direction: row;
             align-items: center;
-            padding: 2rem 0 0.5rem 0;
+        }
+        @include desktop {
+            justify-content: flex-start;
         }
     }
     &__logo {
-        width: 33vw;
-        padding: 2rem 0 1.5rem 0;
+        max-width: toRem(120);
+        max-height: toRem(20);
+        margin: 3rem 0 0.75rem 0;
 
         @include tablet {
-            width: 10vw;
             padding: 0;
+            margin: 0;
         }
     }
     &__logo--tablet-disappear {
@@ -146,14 +191,6 @@ body {
 
         @include tablet {
             display: block;
-        }
-    }
-    &__line--space-between {
-        @include tablet {
-            justify-content: space-between;
-        }
-        @include desktop {
-            justify-content: flex-start;
         }
     }
     &__line--nopadding {
