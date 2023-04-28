@@ -230,6 +230,10 @@ body {
     &__email {
         margin: 0 0 1.35rem;
     }
+    &__email-address {
+        text-decoration: none;
+        color: $primary-color-white;
+    }
     &__spacer {
         flex-grow: 2;
     }
@@ -407,10 +411,16 @@ body {
     }
 
     &__image {
+        filter: grayscale(1);
+        transition: filter 0.3s ease-in-out;
         width: 100%;
 
         @include tablet {
             width: 30%;
+        }
+
+        &:hover {
+            filter: none;
         }
     }
 }

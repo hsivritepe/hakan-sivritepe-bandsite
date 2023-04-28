@@ -237,6 +237,10 @@ body {
 .footer__address, .footer__email {
   margin: 0 0 1.35rem;
 }
+.footer__email-address {
+  text-decoration: none;
+  color: #ffffff;
+}
 .footer__spacer {
   flex-grow: 2;
 }
@@ -412,10 +416,15 @@ body {
   }
 }
 .photo-gallery__image {
+  filter: grayscale(1);
+  transition: filter 0.3s ease-in-out;
   width: 100%;
 }
 @media (min-width: 768px) {
   .photo-gallery__image {
     width: 30%;
   }
+}
+.photo-gallery__image:hover {
+  filter: none;
 }/*# sourceMappingURL=bio.css.map */
