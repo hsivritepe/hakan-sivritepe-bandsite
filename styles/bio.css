@@ -427,4 +427,148 @@ body {
 }
 .photo-gallery__image:hover {
   filter: none;
+}
+
+.comments {
+  padding: 0 1rem;
+  line-height: 1.75rem;
+}
+@media (min-width: 768px) {
+  .comments {
+    padding: 0 10.25vw;
+    line-height: 1.375rem;
+  }
+}
+@media (min-width: 1280px) {
+  .comments {
+    padding: 0 18.25vw;
+    line-height: 1.375rem;
+  }
+}
+.comments__title-section-header {
+  font-family: "Avenir Next Demi", sans-serif;
+  font-size: 1.75rem;
+  padding: 2rem 0 2rem 0;
+}
+@media (min-width: 768px) {
+  .comments__title-section-header {
+    font-size: 2.25rem;
+    padding: 3rem 0 2.25rem 0;
+  }
+}
+@media (min-width: 1280px) {
+  .comments__title-section-header {
+    padding: 3rem 0 2.25rem 0;
+  }
+}
+.comments .new-comment {
+  display: flex;
+}
+.comments .new-comment__profile-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin: 2.25rem 1rem 0 0;
+  background-size: contain;
+}
+@media (min-width: 768px) {
+  .comments .new-comment__profile-icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+.comments .new-comment__form-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.comments .new-comment__form-name, .comments .new-comment__form-comment {
+  padding: 1rem;
+  background-color: rgba(225, 225, 225, 0.5);
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #afafaf;
+}
+.comments .new-comment__form-name::-moz-placeholder, .comments .new-comment__form-comment::-moz-placeholder {
+  color: #323232;
+}
+.comments .new-comment__form-name::placeholder, .comments .new-comment__form-comment::placeholder {
+  color: #323232;
+}
+.comments .new-comment__form-label {
+  font-family: "Avenir Next Demi", sans-serif;
+  color: #afafaf;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.comments .new-comment__form-button {
+  font-family: "Avenir Next Demi", sans-serif;
+  color: #ffffff;
+  height: 40px;
+  width: 100%;
+  background-color: #323232;
+  border: none;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+@media (min-width: 768px) {
+  .comments .new-comment__form-button {
+    padding: 0 2rem;
+    min-width: 150px;
+  }
+}
+.comments .new-comment__form-button:hover {
+  background-color: #000000;
+}
+.comments .old-comments {
+  border-top: 1px solid #e1e1e1;
+  margin: 1rem 0 1.25rem;
+  padding: 0;
+}
+.comments .old-comments__container {
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e1e1e1;
+}
+.comments .old-comments__profile-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin: 0.25rem 1rem 0 0;
+  background-size: contain;
+}
+@media (min-width: 768px) {
+  .comments .old-comments__profile-icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+.comments .old-comments__content {
+  display: flex;
+  flex-direction: column;
+}
+.comments .old-comments__top {
+  display: flex;
+  justify-content: space-between;
+}
+.comments .old-comments__name {
+  font-family: "Avenir Next Demi", sans-serif;
+  color: #323232;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+  .comments .old-comments__name {
+    font-size: 0.875rem;
+  }
+}
+.comments .old-comments__date {
+  color: #afafaf;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+  .comments .old-comments__date {
+    font-size: 0.875rem;
+  }
 }/*# sourceMappingURL=bio.css.map */

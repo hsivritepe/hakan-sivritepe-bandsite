@@ -156,6 +156,55 @@
                     />
                 </div>
             </section>
+
+            <section class="comments">
+                <div class="comments__title-section-header">
+                    Join the Conversation
+                </div>
+                <div class="new-comment">
+                    <img
+                        src="/assets/images/Mohan-muruge.jpg"
+                        alt="profile icons"
+                        class="new-comment__profile-icon"
+                    />
+                    <form
+                        action=""
+                        class="new-comment__form-container"
+                    >
+                        <label
+                            for="formName"
+                            class="new-comment__form-label"
+                            >name</label
+                        >
+                        <input
+                            type="text"
+                            name="formName"
+                            class="new-comment__form-name"
+                            placeholder="Enter your name"
+                        />
+                        <label
+                            for="formComment"
+                            class="new-comment__form-label"
+                            >comment</label
+                        >
+                        <textarea
+                            name="formComment"
+                            id=""
+                            cols="30"
+                            rows="10"
+                            class="new-comment__form-comment"
+                            placeholder="Add a new comment"
+                        ></textarea>
+                        <button
+                            type="submit"
+                            class="new-comment__form-button"
+                        >
+                            COMMENT
+                        </button>
+                    </form>
+                </div>
+                <ul class="old-comments"></ul>
+            </section>
         </main>
 
         <footer class="footer">
@@ -249,5 +298,6 @@
                 </div>
             </div>
         </footer>
+        <script src="/scripts/index-page.js"></script>
     </body>
 </html>

@@ -424,3 +424,153 @@ body {
         }
     }
 }
+
+.comments {
+    padding: 0 toRem($padding-mobile-between-components-px);
+    line-height: toRem($line-height-mobile-body-px);
+
+    @include tablet {
+        padding: 0 10.25vw;
+        line-height: toRem($line-height-tablet-body-px);
+    }
+    @include desktop {
+        padding: 0 18.25vw;
+        line-height: toRem($line-height-tablet-body-px);
+    }
+
+    &__title-section-header {
+        font-family: 'Avenir Next Demi', sans-serif;
+        font-size: toRem($font-mobile-section-header-px);
+        padding: toRem($padding-mobile-after-headlines-px) 0
+            toRem($padding-mobile-after-headlines-px) 0;
+
+        @include tablet {
+            font-size: toRem($font-tablet-section-header-px);
+            padding: toRem($padding-tablet-before-headlines-px) 0
+                toRem($padding-tablet-after-headlines-px) 0;
+        }
+        @include desktop {
+            padding: toRem($padding-desktop-before-headlines-px) 0
+                toRem($padding-desktop-after-headlines-px) 0;
+        }
+    }
+
+    .new-comment {
+        display: flex;
+
+        &__profile-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin: 2.25rem 1rem 0 0;
+            background-size: contain;
+
+            @include tablet {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        &__form-container {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        &__form-name,
+        &__form-comment {
+            padding: 1rem;
+            background-color: rgba($secondary-color-mercury, 0.5);
+            margin-bottom: toRem(
+                $padding-mobile-between-components-px
+            );
+            border-radius: toRem(4);
+            border: 1px solid $primary-color-silver;
+
+            &::placeholder {
+                color: $primary-color-black;
+            }
+        }
+        &__form-label {
+            font-family: 'Avenir Next Demi', sans-serif;
+            color: $primary-color-silver;
+            text-transform: uppercase;
+            margin-bottom: toRem(8);
+        }
+
+        &__form-button {
+            font-family: 'Avenir Next Demi', sans-serif;
+            color: $primary-color-white;
+            height: 40px;
+            width: 100%;
+            background-color: $primary-color-black;
+            border: none;
+            margin-bottom: toRem(
+                $padding-mobile-between-components-px
+            );
+            border-radius: toRem(4);
+
+            @include tablet {
+                padding: 0 toRem(32);
+                min-width: 150px;
+            }
+        }
+        &__form-button:hover {
+            background-color: $secondary-color-darkblack;
+        }
+    }
+
+    .old-comments {
+        border-top: 1px solid $secondary-color-mercury;
+        margin: 1rem 0 1.25rem;
+        padding: 0;
+
+        &__container {
+            display: flex;
+            padding: 1rem 0;
+            border-bottom: 1px solid $secondary-color-mercury;
+        }
+
+        &__profile-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin: 0.25rem 1rem 0 0;
+            background-size: contain;
+
+            @include tablet {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__top {
+            display: flex;
+            justify-content: space-between;
+        }
+        &__name {
+            font-family: 'Avenir Next Demi', sans-serif;
+            color: $primary-color-black;
+            font-size: toRem($font-mobile-body-px);
+            margin-bottom: toRem(8);
+
+            @include tablet {
+                font-size: toRem($font-tablet-body-px);
+            }
+        }
+        &__date {
+            color: $primary-color-silver;
+            font-size: toRem($font-mobile-body-px);
+            margin-bottom: toRem(8);
+
+            @include tablet {
+                font-size: toRem($font-tablet-body-px);
+            }
+        }
+    }
+}
