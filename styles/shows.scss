@@ -1,0 +1,144 @@
+@use 'partials/variables' as *;
+@use 'partials/mixins' as *;
+
+.banner {
+    background: url('/assets/images/hero-shows.jpg')
+        rgba($primary-color-black, 0.5);
+    background-size: contain;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    @include tablet {
+        background-size: cover;
+    }
+
+    &__title-subheader {
+        font-family: 'Avenir Next', sans-serif;
+        margin: 0;
+        padding: toRem($padding-mobile-after-headlines-px)
+            toRem($padding-mobile-between-components-px)
+            toRem($padding-mobile-after-headlines-px);
+
+        @include tablet {
+            font-size: toRem($font-tablet-subheader-px);
+            padding: toRem($padding-tablet-after-headlines-px)
+                toRem($padding-tablet-between-components-px)
+                toRem($padding-tablet-after-headlines-px);
+        }
+        @include desktop {
+            padding: toRem($padding-desktop-after-headlines-px)
+                toRem($padding-desktop-between-components-px)
+                toRem($padding-desktop-after-headlines-px);
+        }
+    }
+    &__title-page-header {
+        padding: 0 toRem($padding-mobile-between-components-px)
+            toRem($padding-mobile-after-headlines-px);
+        line-height: 2.75rem;
+
+        @include tablet {
+            padding: 0 toRem($padding-tablet-between-components-px)
+                toRem($padding-tablet-after-headlines-px);
+            line-height: toRem($line-height-tablet-page-header-px);
+            width: 85%;
+        }
+    }
+    &__soundcloud-embed {
+        align-self: center;
+        padding: 0 toRem($padding-mobile-between-components-px)
+            toRem($padding-mobile-after-headlines-px);
+        width: 100%;
+
+        @include tablet {
+            align-self: flex-start;
+            padding: 0 toRem($padding-tablet-between-components-px)
+                toRem($padding-tablet-after-headlines-px);
+            min-width: 35rem;
+            width: unset;
+        }
+    }
+}
+
+.show-content {
+    &__title {
+        font-family: 'Avenir Next Demi', sans-serif;
+        font-size: toRem($font-mobile-section-header-px);
+        line-height: toRem($line-height-mobile-section-header-px);
+        padding: toRem($padding-mobile-before-headlines-px)
+            toRem($padding-mobile-between-components-px)
+            toRem($padding-mobile-after-headlines-px);
+
+        @include tablet {
+            line-height: toRem($line-height-tablet-section-header-px);
+            padding: toRem($padding-tablet-before-headlines-px)
+                toRem($padding-tablet-between-components-px)
+                toRem($padding-tablet-after-headlines-px);
+            line-height: toRem($line-height-tablet-section-header-px);
+        }
+        @include desktop {
+            padding: toRem($padding-desktop-before-headlines-px)
+                toRem($padding-desktop-between-components-px)
+                toRem($padding-desktop-after-headlines-px);
+        }
+    }
+}
+.show-list {
+    padding: 0 toRem($padding-mobile-between-components-px);
+    margin: 0;
+
+    @include tablet {
+        line-height: toRem($line-height-tablet-section-header-px);
+        padding: toRem($padding-tablet-before-headlines-px)
+            toRem($padding-tablet-between-components-px)
+            toRem($padding-tablet-after-headlines-px);
+        line-height: toRem($line-height-tablet-section-header-px);
+    }
+    @include desktop {
+        padding: toRem($padding-desktop-before-headlines-px)
+            toRem($padding-desktop-between-components-px)
+            toRem($padding-desktop-after-headlines-px);
+    }
+
+    &__container {
+        border-bottom: 1px solid $secondary-color-mercury;
+        margin-bottom: 1rem;
+        list-style-type: none;
+    }
+    &__item {
+        padding: 0 0 1rem 0;
+    }
+    &__show-link {
+        font-family: 'Avenir Next Demi', sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        color: $primary-color-white;
+        height: 40px;
+        width: 100%;
+        background-color: $primary-color-black;
+        border: none;
+        margin: 0 0 toRem($padding-mobile-between-components-px) 0;
+        border-radius: toRem(4);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        @include tablet {
+            padding: 0 toRem(32);
+            min-width: 150px;
+        }
+    }
+    &__show-link:hover {
+        background-color: $secondary-color-darkblack;
+    }
+
+    &--title {
+        font-family: 'Avenir Next Demi', sans-serif;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        color: $primary-color-silver;
+    }
+    &--bold {
+        font-family: 'Avenir Next Demi', sans-serif;
+    }
+}

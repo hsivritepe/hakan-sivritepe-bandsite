@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+
+        <link rel="stylesheet" href="/styles/normalize.css" />
+        <link rel="stylesheet" href="/styles/global.css" />
+        <link rel="stylesheet" href="/styles/shows.css" />
+    </head>
+    <body>
+        <header class="navigation">
+            <nav class="navigation__container">
+                <a href="/" class="navigation__link"
+                    ><img
+                        src="/assets/logos/Logo-bandsite.svg"
+                        alt="bandsite logo"
+                        class="navigation__logo navigation__logo--extrapadding"
+                /></a>
+                <ul class="navigation__list">
+                    <li class="navigation__item">
+                        <a href="/" class="navigation__link"
+                            >Biography</a
+                        >
+                    </li>
+                    <li
+                        class="navigation__item navigation__item--active"
+                    >
+                        <a
+                            href="/pages/shows.html"
+                            class="navigation__link"
+                            >Shows</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="banner">
+                <div class="banner__title-subheader">
+                    Beautiful Beasts Album
+                </div>
+                <div class="banner__title-page-header">
+                    Queen of Yellow x For The Strings
+                </div>
+                <div class="banner__soundcloud-embed">
+                    <iframe
+                        width="100%"
+                        height="166"
+                        scrolling="no"
+                        frameborder="no"
+                        allow="autoplay"
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/983627845&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                    ></iframe>
+                    <div
+                        style="
+                            font-size: 10px;
+                            color: #cccccc;
+                            line-break: anywhere;
+                            word-break: normal;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            font-family: Interstate, Lucida Grande,
+                                Lucida Sans Unicode, Lucida Sans,
+                                Garuda, Verdana, Tahoma, sans-serif;
+                            font-weight: 100;
+                        "
+                    >
+                        <a
+                            href="https://soundcloud.com/official-p-nk"
+                            title="Official Pink"
+                            target="_blank"
+                            style="
+                                color: #cccccc;
+                                text-decoration: none;
+                            "
+                            >Official Pink</a
+                        >
+                        ·
+                        <a
+                            href="https://soundcloud.com/official-p-nk/cover-me-in-sunshine"
+                            title="Cover Me In Sunshine"
+                            target="_blank"
+                            style="
+                                color: #cccccc;
+                                text-decoration: none;
+                            "
+                            >Cover Me In Sunshine</a
+                        >
+                    </div>
+                </div>
+            </section>
+            <section class="show-content">
+                <div class="show-content__title">Shows</div>
+                <ul class="show-list"></ul>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__line">
+                <div class="footer__title--section-header">
+                    Get In Touch
+                </div>
+                <div class="footer__social-media">
+                    <img
+                        src="/assets/icons/svg/Icon-instagram.svg"
+                        alt="instagram logo"
+                    />
+                    <img
+                        src="/assets/icons/svg/Icon-facebook.svg"
+                        alt="facebook logo"
+                    />
+                    <img
+                        src="/assets/icons/svg/Icon-twitter.svg"
+                        alt="twitter logo"
+                    />
+                </div>
+                <div class="footer__spacer"></div>
+                <img
+                    src="/assets/logos/Logo-bandsite.svg"
+                    class="footer__logo footer__logo--mobile-disappear footer__logo--totheright"
+                    alt=""
+                />
+            </div>
+            <div class="footer__line">
+                <div class="footer__boxname">
+                    <div class="footer__name">
+                        Cam Adams<br />
+                        The Bees Knees Management
+                    </div>
+                    <div class="footer__address">
+                        503 Broadway Penthouse,<br />New York, NY
+                        10012, USA
+                    </div>
+                    <div class="footer__email">
+                        <a
+                            href="mailto:info@thebeesknees.com"
+                            class="footer__email-address"
+                            >info@thebeesknees.com</a
+                        >
+                    </div>
+                </div>
+                <div class="footer__boxname">
+                    <div class="footer__name">
+                        Pearl Gregg<br />
+                        Limitless Artist Group
+                    </div>
+                    <div class="footer__address">
+                        Booking Agent for<br />
+                        US / South America / Japan
+                    </div>
+                    <div class="footer__email">
+                        <a
+                            href="mailto:pearl.gregg@limitlessag.com"
+                            class="footer__email-address"
+                            >pearl.gregg@limitlessag.com</a
+                        >
+                    </div>
+                </div>
+                <div class="footer__boxname">
+                    <div class="footer__name">
+                        Carson Whyte<br />
+                        ARCH Entertainment
+                    </div>
+                    <div class="footer__address">
+                        Booking Agent for<br />
+                        UK / EU / AU
+                    </div>
+                    <div class="footer__email">
+                        <a
+                            href="mailto:cwhyte@archentertainment.com"
+                            class="footer__email-address"
+                            >cwhyte@archentertainment.com</a
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="footer__line">
+                <img
+                    src="/assets/logos/Logo-bandsite.svg"
+                    class="footer__logo footer__logo--tablet-disappear"
+                    alt="logo"
+                />
+                <div class="footer__copyright">
+                    Copyright The Bees Knees © 2021 All Rights
+                    Reserved
+                </div>
+            </div>
+        </footer>
+        <script src="/scripts/build-shows-page.js"></script>
+    </body>
+</html>
