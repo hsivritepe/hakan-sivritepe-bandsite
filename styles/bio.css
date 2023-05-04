@@ -288,6 +288,7 @@
 }
 .comments .new-comment__form-button:hover {
   background-color: #000000;
+  cursor: pointer;
 }
 .comments .old-comments {
   border-top: 1px solid #e1e1e1;

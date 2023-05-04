@@ -59,22 +59,84 @@ function displayShowList() {
 }
 displayShowList();
 
+function displayShowListTablet() {
+    showListTablet = document.querySelector('.show-list-tablet');
+    let elementLi = document.createElement('li');
+    elementLi.className = 'show-list-tablet__row';
+    let divDate = document.createElement('div');
+    divDate.className = 'show-list-tablet__title';
+    let divVenue = document.createElement('div');
+    divVenue.className = 'show-list-tablet__title';
+    let divLocation = document.createElement('div');
+    divLocation.className = 'show-list-tablet__title';
+    let divBuyTickets = document.createElement('div');
+    divBuyTickets.className = 'show-list-tablet__title';
+
+    divDate.textContent = 'DATE';
+    divVenue.textContent = 'VENUE';
+    divLocation.textContent = 'LOCATION';
+    divBuyTickets.textContent = '';
+
+    elementLi.appendChild(divDate);
+    elementLi.appendChild(divVenue);
+    elementLi.appendChild(divLocation);
+    elementLi.appendChild(divBuyTickets);
+    showListTablet.appendChild(elementLi);
+
+    listOfShows.forEach((show) => {
+        elementLi = document.createElement('li');
+        elementLi.className = 'show-list-tablet__row';
+        let divDate = document.createElement('div');
+        divDate.className = 'show-list-tablet__item';
+        let divVenue = document.createElement('div');
+        divVenue.className = 'show-list-tablet__item';
+        let divLocation = document.createElement('div');
+        divLocation.className = 'show-list-tablet__item';
+        let divBuyTickets = document.createElement('div');
+        divBuyTickets.className =
+            'show-list-tablet__item show-list-tablet__show-link';
+        divBuyTickets.textContent = 'buy tickets';
+
+        divDate.innerHTML = `<div class="show-list-tablet--bold">${show.date}</div>`;
+        divVenue.innerHTML = `${show.venue}`;
+        divLocation.innerHTML = `${show.location}`;
+
+        elementLi.appendChild(divDate);
+        elementLi.appendChild(divVenue);
+        elementLi.appendChild(divLocation);
+        elementLi.appendChild(divBuyTickets);
+        showListTablet.appendChild(elementLi);
+    });
+}
+displayShowListTablet();
+
 {
-    /*
-<li class="show-list__container">
-    <div class="show-list__item">
-        <div class="show-list--title">DATE</div>
-        <div class="show-list--bold">Mon Sept 06 2021</div>
-    </div>
-    <div class="show-list__item">
-        <div class="show-list--title">VENUE</div>
-        Ronald Lane
-    </div>
-    <div class="show-list__item">
-        <div class="show-list--title">LOCATION</div>
-        San Francisco, CA
-    </div>
-    <div class="show-list__show-link">buy tickets</div>
-</li>;
-*/
+    /* <ul class="show-list-tablet">
+    <li class="show-list-tablet__row">
+        <div class="show-list-tablet__title">Date</div>
+        <div class="show-list-tablet__title">Venue</div>
+        <div class="show-list-tablet__title">Location</div>
+        <div class="show-list-tablet__title"></div>
+    </li>
+    <li class="show-list-tablet__row show-list-tablet--bottom-border">
+        <div class="show-list-tablet__item show-list-tablet--bold">
+            Mon Sept 06 2021
+        </div>
+        <div class="show-list-tablet__item">Belly Up Aspen</div>
+        <div class="show-list-tablet__item">Aspen, CO</div>
+        <div class="show-list-tablet__item show-list-tablet__show-link">
+            buy tickets
+        </div>
+    </li>
+    <li class="show-list-tablet__row show-list-tablet--bottom-border">
+        <div class="show-list-tablet__item show-list-tablet--bold">
+            Mon Sept 06 2021
+        </div>
+        <div class="show-list-tablet__item">Belly Up Aspen</div>
+        <div class="show-list-tablet__item">Aspen, CO</div>
+        <div class="show-list-tablet__item show-list-tablet__show-link">
+            buy tickets
+        </div>
+    </li>
+</ul>; */
 }

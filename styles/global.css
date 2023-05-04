@@ -65,7 +65,7 @@ body {
   width: 100%;
 }
 .navigation__item--active {
-  font-family: "Avenir Next Demi";
+  font-family: "Avenir Next Demi", sans-serif;
   border-bottom: 3px solid #ffffff;
 }
 @media (min-width: 768px) {
@@ -73,10 +73,13 @@ body {
     margin: 0 0 0 4rem;
   }
 }
+.navigation__item:hover {
+  border-bottom: 3px solid #ffffff;
+}
 .navigation__link {
   display: flex;
   height: 100%;
-  color: #ffffff;
+  color: #e1e1e1;
   font-weight: bold;
   text-decoration: none;
   font-size: 1rem;
@@ -86,6 +89,18 @@ body {
   .navigation__link {
     padding: 2rem 0;
   }
+}
+.navigation__link--trim-padding {
+  margin: 1.25rem 0 0.75rem 0;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .navigation__link--trim-padding {
+    margin: 0;
+  }
+}
+.navigation__link:hover {
+  color: #ffffff;
 }
 .navigation__logo {
   max-width: 120px;

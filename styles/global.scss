@@ -19,13 +19,6 @@ body {
 .navigation {
     background-color: $primary-color-black;
 
-    // @include tablet {
-    //     padding: 0.5rem toRem($padding-tablet-between-components-px) 0;
-    // }
-    // @include desktop {
-    //     padding: 1rem toRem($padding-desktop-between-components-px) 0;
-    // }
-
     &__container {
         display: flex;
         flex-direction: column;
@@ -58,7 +51,7 @@ body {
         width: 100%;
 
         &--active {
-            font-family: 'Avenir Next Demi';
+            font-family: 'Avenir Next Demi', sans-serif;
             border-bottom: 3px solid $primary-color-white;
         }
         @include tablet {
@@ -66,10 +59,14 @@ body {
             // margin: 0 1rem;
         }
     }
+    &__item:hover {
+        border-bottom: 3px solid $primary-color-white;
+    }
+
     &__link {
         display: flex;
         height: 100%;
-        color: $primary-color-white;
+        color: $secondary-color-mercury;
         font-weight: bold;
         text-decoration: none;
         font-size: toRem($font-mobile-navigation-link-px);
@@ -77,11 +74,19 @@ body {
 
         @include tablet {
             padding: 2rem 0;
-            //margin: 0 toRem($padding-tablet-between-components-px);
         }
-        @include desktop {
-            //margin: 0;
+
+        &--trim-padding {
+            margin: 1.25rem 0 0.75rem 0;
+            padding: 0;
+
+            @include tablet {
+                margin: 0;
+            }
         }
+    }
+    &__link:hover {
+        color: $primary-color-white;
     }
     &__logo {
         max-width: 120px;
