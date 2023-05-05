@@ -132,7 +132,35 @@ body {
   background-size: cover;
   min-height: 60vw;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .banner {
+    min-height: 55vw;
+  }
+}
+.banner__row {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .banner__row {
+    align-items: flex-start;
+  }
+}
+@media (min-width: 1280px) {
+  .banner__row {
+    flex-direction: row;
+  }
+}
+.banner__side {
+  width: 75%;
+}
+@media (min-width: 1280px) {
+  .banner__side {
+    width: 50%;
+  }
 }
 .banner__title-page-header {
   font-family: "Avenir Next Demi", sans-serif;
@@ -152,7 +180,7 @@ body {
   }
 }
 .banner__title-subheader {
-  font-family: "Avenir Next Demi", sans-serif;
+  font-family: "Avenir Next", sans-serif;
   font-size: 1.125rem;
   padding: 3rem 1rem 2rem;
   color: #ffffff;
@@ -165,7 +193,25 @@ body {
 }
 @media (min-width: 1280px) {
   .banner__title-subheader {
+    font-family: "Avenir Next Demi", sans-serif;
     padding: 3rem 7.5rem 2.25rem;
+  }
+}
+.banner__soundcloud-embed {
+  align-self: center;
+  padding: 0 1rem 2rem;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .banner__soundcloud-embed {
+    width: 75%;
+    align-self: flex-start;
+    padding: 0 0 3rem 3rem;
+  }
+}
+@media (min-width: 1280px) {
+  .banner__soundcloud-embed {
+    padding: 0 7.5rem 0 0;
   }
 }
 

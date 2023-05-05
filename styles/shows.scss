@@ -4,21 +4,33 @@
 .banner {
     background: url('/assets/images/hero-shows.jpg')
         rgba($primary-color-black, 0.5);
-    background-size: contain;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    // align-items: flex-start;
+    // justify-content: flex-start;
 
     @include tablet {
-        background-size: cover;
+    }
+    @include desktop {
+    }
+
+    &__title-page-header {
+        padding: 0 toRem($padding-mobile-between-components-px)
+            toRem($padding-mobile-after-headlines-px);
+        line-height: 2.75rem;
+
+        @include tablet {
+            padding: 0 toRem($padding-tablet-between-components-px)
+                toRem($padding-tablet-after-headlines-px);
+            line-height: toRem($line-height-tablet-page-header-px);
+            width: 85%;
+        }
+        @include desktop {
+            padding: 0 toRem($padding-desktop-between-components-px) 0;
+            width: 100%;
+        }
     }
 
     &__title-subheader {
-        font-family: 'Avenir Next', sans-serif;
         margin: 0;
-        padding: toRem($padding-mobile-after-headlines-px)
-            toRem($padding-mobile-between-components-px)
-            toRem($padding-mobile-after-headlines-px);
 
         @include tablet {
             font-size: toRem($font-tablet-subheader-px);
@@ -32,35 +44,14 @@
                 toRem($padding-desktop-after-headlines-px);
         }
     }
-    &__title-page-header {
-        padding: 0 toRem($padding-mobile-between-components-px)
-            toRem($padding-mobile-after-headlines-px);
-        line-height: 2.75rem;
-
-        @include tablet {
-            padding: 0 toRem($padding-tablet-between-components-px)
-                toRem($padding-tablet-after-headlines-px);
-            line-height: toRem($line-height-tablet-page-header-px);
-            width: 85%;
-        }
-    }
-    &__soundcloud-embed {
-        align-self: center;
-        padding: 0 toRem($padding-mobile-between-components-px)
-            toRem($padding-mobile-after-headlines-px);
-        width: 100%;
-
-        @include tablet {
-            align-self: flex-start;
-            padding: 0 toRem($padding-tablet-between-components-px)
-                toRem($padding-tablet-after-headlines-px);
-            min-width: 35rem;
-            width: unset;
-        }
-    }
 }
 
 .show-content {
+    @include desktop {
+        display: flex;
+        justify-content: space-between;
+    }
+
     &__title {
         font-family: 'Avenir Next Demi', sans-serif;
         font-size: toRem($font-mobile-page-header-px);
@@ -88,16 +79,6 @@
 
     @include tablet {
         display: none;
-        line-height: toRem($line-height-tablet-section-header-px);
-        padding: toRem($padding-tablet-before-headlines-px)
-            toRem($padding-tablet-between-components-px)
-            toRem($padding-tablet-after-headlines-px);
-        line-height: toRem($line-height-tablet-section-header-px);
-    }
-    @include desktop {
-        padding: toRem($padding-desktop-before-headlines-px)
-            toRem($padding-desktop-between-components-px)
-            toRem($padding-desktop-after-headlines-px);
     }
 
     &__container {
@@ -145,54 +126,67 @@
 }
 
 .show-list-tablet {
-    display: flex;
-    flex-direction: column;
+    display: none;
+    flex-grow: 2;
 
-    &__title {
-        font-family: 'Avenir Next Demi', sans-serif;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        color: $primary-color-silver;
-        width: 24%;
-    }
-    &__item {
-        width: 24%;
-    }
-    &--bold {
-        font-family: 'Avenir Next Demi', sans-serif;
-    }
-
-    &__row {
+    @include tablet {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem toRem($padding-tablet-between-components-px)
-            1rem;
-    }
-    &--bottom-border {
-        border-bottom: 1px solid $secondary-color-mercury;
-        list-style-type: none;
-    }
-    &__show-link {
-        font-family: 'Avenir Next Demi', sans-serif;
-        text-transform: uppercase;
-        text-align: center;
-        color: $primary-color-white;
-        height: 40px;
-        background-color: $primary-color-black;
-        border: none;
-        border-radius: toRem(4);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
+        padding: 0 toRem($padding-tablet-between-components-px) 1rem;
 
-        @include tablet {
-            padding: 0 toRem(32);
-            min-width: 150px;
+        &__title {
+            font-family: 'Avenir Next Demi', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: $primary-color-silver;
+            width: 24%;
+        }
+        &__item {
+            width: 24%;
+        }
+        &--bold {
+            font-family: 'Avenir Next Demi', sans-serif;
+        }
+
+        &__row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0 1rem;
+            border-bottom: 1px solid $secondary-color-mercury;
+            list-style-type: none;
+
+            &--title {
+                border-bottom: none;
+                padding: 3rem 0 1rem;
+            }
+        }
+
+        &__show-link {
+            font-family: 'Avenir Next Demi', sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+            color: $primary-color-white;
+            height: 40px;
+            background-color: $primary-color-black;
+            border: none;
+            border-radius: toRem(4);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            @include tablet {
+                padding: 0 toRem(32);
+                min-width: 150px;
+            }
+        }
+        &__show-link:hover {
+            background-color: $secondary-color-darkblack;
+            cursor: pointer;
         }
     }
-    &__show-link:hover {
-        background-color: $secondary-color-darkblack;
-        cursor: pointer;
+    @include desktop {
+        padding: 1rem toRem($padding-desktop-between-components-px)
+            1rem;
     }
 }

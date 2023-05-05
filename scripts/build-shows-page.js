@@ -63,6 +63,7 @@ function displayShowListTablet() {
     showListTablet = document.querySelector('.show-list-tablet');
     let elementLi = document.createElement('li');
     elementLi.className = 'show-list-tablet__row';
+    elementLi.classList.add('show-list-tablet__row--title');
     let divDate = document.createElement('div');
     divDate.className = 'show-list-tablet__title';
     let divVenue = document.createElement('div');
