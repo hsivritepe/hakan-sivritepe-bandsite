@@ -111,33 +111,43 @@ function displayShowListTablet() {
 }
 displayShowListTablet();
 
+function selectShow() {
+    // let showRows = document.querySelector('.show-content__title');
+    let showRows = document.querySelectorAll(
+        '.show-list-tablet__row'
+    );
+    let selectedRow = null;
+
+    showRows.forEach((row) => {
+        row.addEventListener('click', () => {
+            if (selectedRow !== null) {
+                selectedRow.classList.remove(
+                    'show-list-tablet__row--selected'
+                );
+            }
+            row.classList.add('show-list-tablet__row--selected');
+            selectedRow = row;
+        });
+    });
+}
+selectShow();
+
 {
-    /* <ul class="show-list-tablet">
-    <li class="show-list-tablet__row">
-        <div class="show-list-tablet__title">Date</div>
-        <div class="show-list-tablet__title">Venue</div>
-        <div class="show-list-tablet__title">Location</div>
-        <div class="show-list-tablet__title"></div>
-    </li>
-    <li class="show-list-tablet__row show-list-tablet--bottom-border">
-        <div class="show-list-tablet__item show-list-tablet--bold">
-            Mon Sept 06 2021
-        </div>
-        <div class="show-list-tablet__item">Belly Up Aspen</div>
-        <div class="show-list-tablet__item">Aspen, CO</div>
-        <div class="show-list-tablet__item show-list-tablet__show-link">
-            buy tickets
-        </div>
-    </li>
-    <li class="show-list-tablet__row show-list-tablet--bottom-border">
-        <div class="show-list-tablet__item show-list-tablet--bold">
-            Mon Sept 06 2021
-        </div>
-        <div class="show-list-tablet__item">Belly Up Aspen</div>
-        <div class="show-list-tablet__item">Aspen, CO</div>
-        <div class="show-list-tablet__item show-list-tablet__show-link">
-            buy tickets
-        </div>
-    </li>
-</ul>; */
+    /* <script>
+  const rows = document.querySelectorAll('tr');
+  let selectedRow = null;
+
+  rows.forEach(row => {
+    row.addEventListener('click', () => {
+      // Deselect any previously selected row
+      if (selectedRow !== null) {
+        selectedRow.classList.remove('selected');
+      }
+
+      // Select the current row
+      row.classList.add('selected');
+      selectedRow = row;
+    });
+  });
+</script> */
 }

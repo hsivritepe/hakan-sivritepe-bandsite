@@ -156,6 +156,18 @@
             border-bottom: 1px solid $secondary-color-mercury;
             list-style-type: none;
 
+            &--selected {
+                background-color: $secondary-color-mercury;
+                &:hover {
+                    background-color: $secondary-color-mercury !important;
+                }
+            }
+
+            &:hover {
+                background-color: $secondary-color-alabaster;
+                cursor: pointer;
+            }
+
             &--title {
                 border-bottom: none;
                 padding: 3rem 0 1rem;

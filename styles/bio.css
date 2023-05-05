@@ -264,6 +264,12 @@
 .comments .new-comment__form-name::placeholder, .comments .new-comment__form-comment::placeholder {
   color: #323232;
 }
+.comments .new-comment__form-name:focus, .comments .new-comment__form-comment:focus {
+  border-color: #323232;
+}
+.comments .new-comment__form-name--input-error-state, .comments .new-comment__form-comment--input-error-state {
+  border-color: #d22d2d;
+}
 .comments .new-comment__form-label {
   font-family: "Avenir Next Demi", sans-serif;
   color: #afafaf;

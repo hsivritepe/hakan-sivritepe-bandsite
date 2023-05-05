@@ -71,17 +71,25 @@ function setDefaultImage() {
 setDefaultImage();
 
 function addNewComment() {
+    // Get all necessary values to variables
     let form = document.querySelector('#new-comment-form');
-    console.log;
+    let formName = document.querySelector('#formName');
+    let formComment = document.querySelector('#formComment');
     let todayDate = new Date().toLocaleDateString();
+
     form.addEventListener('submit', (event) => {
         event.preventDefault();
+
+        // Construct the new comment and add it to the top
         let comment = {
-            name: document.querySelector('#formName').value,
+            name: formName.value,
             date: todayDate,
-            comment: document.querySelector('#formComment').value,
+            comment: formComment.value,
         };
         comments.unshift(comment);
+
+        // Clear the form, clear the comments and re construct it
+        formName.value = formComment.value = '';
         let oldComments = document.querySelector('.old-comments');
         oldComments.innerHTML = '';
         displayComment();
