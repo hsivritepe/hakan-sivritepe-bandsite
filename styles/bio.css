@@ -267,7 +267,7 @@
 .comments .new-comment__form-name:focus, .comments .new-comment__form-comment:focus {
   border-color: #323232;
 }
-.comments .new-comment__form-name--input-error-state, .comments .new-comment__form-comment--input-error-state {
+.comments .new-comment--input-error-state {
   border-color: #d22d2d;
 }
 .comments .new-comment__form-label {

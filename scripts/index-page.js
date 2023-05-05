@@ -77,8 +77,53 @@ function addNewComment() {
     let formComment = document.querySelector('#formComment');
     let todayDate = new Date().toLocaleDateString();
 
+    // When I am done with the field, it is checking for error
+    formName.addEventListener('focusout', () => {
+        if (formName.value.length > 0) {
+            formName.classList.remove(
+                'new-comment--input-error-state'
+            );
+        } else {
+            formName.classList.add('new-comment--input-error-state');
+        }
+    });
+    formComment.addEventListener('focusout', () => {
+        if (formComment.value.length > 0) {
+            formComment.classList.remove(
+                'new-comment--input-error-state'
+            );
+        } else {
+            formComment.classList.add(
+                'new-comment--input-error-state'
+            );
+        }
+    });
+
+    // I am preventing the default behaviour so I can do checks
     form.addEventListener('submit', (event) => {
         event.preventDefault();
+        console.log(formName.value);
+        let formNameTrim = formName.value.trim();
+        let formCommentTrim = formComment.value.trim();
+
+        let errorStatus = false;
+        if (formNameTrim === '') {
+            formName.classList.add('new-comment--input-error-state');
+            errorStatus = true;
+        }
+        if (formCommentTrim === '') {
+            formComment.classList.add(
+                'new-comment--input-error-state'
+            );
+            errorStatus = true;
+        }
+        if (errorStatus) {
+            return;
+        }
+
+        formComment.classList.remove(
+            'new-comment--input-error-state'
+        );
 
         // Construct the new comment and add it to the top
         let comment = {

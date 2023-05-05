@@ -261,11 +261,12 @@
             &:focus {
                 border-color: $primary-color-black;
             }
-
-            &--input-error-state {
-                border-color: $imput-error-state;
-            }
         }
+
+        &--input-error-state {
+            border-color: $imput-error-state;
+        }
+
         &__form-label {
             font-family: 'Avenir Next Demi', sans-serif;
             color: $primary-color-silver;
