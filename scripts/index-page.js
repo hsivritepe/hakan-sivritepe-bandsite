@@ -20,58 +20,83 @@ comments = [
 ];
 
 function getCommentsfromAPI(url, apiKey) {
-    return axios
+    axios
         .get(url, {
             params: {
                 api_key: apiKey,
             },
         })
-        .then((response) => response.data)
+        .then((response) => {
+            let sortedData = response.data.sort((a, b) => {
+                return b.timestamp - a.timestamp;
+            });
+            console.log(sortedData);
+            displayCommentInHTML(sortedData);
+        })
         .catch((error) => console.log(error));
 }
 
-function displayComment() {
+function createNewCommentWithAPI(url, apiKey, commentData) {
+    return axios
+        .post(
+            url,
+            {
+                name: commentData.name,
+                comment: commentData.comment,
+            },
+            {
+                params: {
+                    api_key: apiKey,
+                },
+            }
+        )
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => console.error(error));
+}
+
+function displayCommentInHTML(commentsFromPromise) {
     oldComments = document.querySelector('.old-comments');
-    getCommentsfromAPI(
-        'https://project-1-api.herokuapp.com/comments',
-        'e7ca0048-5bad-422a-8f23-f7677987cda6'
-    ).then((commentsFromAPI) => {
-        //console.log(commentsFromAPI);
-        commentsFromAPI.forEach((comment) => {
-            let li = document.createElement('li');
-            li.className = 'old-comments__container';
-            let img = document.createElement('img');
-            img.className = 'old-comments__profile-icon';
-            img.src = '/assets/images/grey-background.jpg';
-            let divContent = document.createElement('div');
-            divContent.className = 'old-comments__content';
-            let divTop = document.createElement('div');
-            divTop.className = 'old-comments__top';
-            let divName = document.createElement('div');
-            divName.className = 'old-comments__name';
-            let divDate = document.createElement('div');
-            divDate.className = 'old-comments__date';
-            let divBottom = document.createElement('div');
-            divBottom.className = 'old-comments__bottom';
-            let divComment = document.createElement('div');
-            divComment.className = 'old-comments__comment';
 
-            divName.textContent = comment.name;
-            divDate.textContent = comment.date;
-            divComment.textContent = comment.comment;
+    commentsFromPromise.forEach((comment) => {
+        let li = document.createElement('li');
+        li.className = 'old-comments__container';
+        let img = document.createElement('img');
+        img.className = 'old-comments__profile-icon';
+        img.src = '/assets/images/grey-background.jpg';
+        let divContent = document.createElement('div');
+        divContent.className = 'old-comments__content';
+        let divTop = document.createElement('div');
+        divTop.className = 'old-comments__top';
+        let divName = document.createElement('div');
+        divName.className = 'old-comments__name';
+        let divDate = document.createElement('div');
+        divDate.className = 'old-comments__date';
+        let divBottom = document.createElement('div');
+        divBottom.className = 'old-comments__bottom';
+        let divComment = document.createElement('div');
+        divComment.className = 'old-comments__comment';
 
-            divTop.appendChild(divName);
-            divTop.appendChild(divDate);
-            divBottom.appendChild(divComment);
-            divContent.appendChild(divTop);
-            divContent.appendChild(divBottom);
-            li.appendChild(img);
-            li.appendChild(divContent);
-            oldComments.appendChild(li);
-        });
+        divName.textContent = comment.name;
+        divDate.textContent = comment.date;
+        divComment.textContent = comment.comment;
+
+        divTop.appendChild(divName);
+        divTop.appendChild(divDate);
+        divBottom.appendChild(divComment);
+        divContent.appendChild(divTop);
+        divContent.appendChild(divBottom);
+        li.appendChild(img);
+        li.appendChild(divContent);
+        oldComments.appendChild(li);
     });
 }
-displayComment();
+
+getCommentsfromAPI(
+    'https://project-1-api.herokuapp.com/comments',
+    'e7ca0048-5bad-422a-8f23-f7677987cda6'
+);
 
 // Getting the profile icons and setting the default image if there is no image
 function setDefaultImage() {
@@ -88,7 +113,7 @@ function setDefaultImage() {
 setDefaultImage();
 
 // Use this function to add a new comment to the comments array
-function addNewComment() {
+function addNewCommentToHTML() {
     // Get all necessary values to variables
     let form = document.querySelector('#new-comment-form');
     let formName = document.querySelector('#formName');
@@ -143,19 +168,24 @@ function addNewComment() {
         );
 
         // Construct the new comment and add it to the top
-        let comment = {
-            name: formName.value,
-            date: todayDate,
-            comment: formComment.value,
-        };
-        comments.unshift(comment);
-        console.log(comments);
+        createNewCommentWithAPI(
+            'https://project-1-api.herokuapp.com/comments',
+            'e7ca0048-5bad-422a-8f23-f7677987cda6',
+            {
+                name: formName.value,
+                comment: formComment.value,
+            }
+        ).then(() =>
+            getCommentsfromAPI(
+                'https://project-1-api.herokuapp.com/comments',
+                'e7ca0048-5bad-422a-8f23-f7677987cda6'
+            )
+        );
 
         // Clear the form, clear the comments and re construct it
         formName.value = formComment.value = '';
         let oldComments = document.querySelector('.old-comments');
         oldComments.innerHTML = '';
-        displayComment();
     });
 }
-addNewComment();
+addNewCommentToHTML();
