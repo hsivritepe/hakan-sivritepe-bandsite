@@ -19,39 +19,56 @@ comments = [
     },
 ];
 
+function getCommentsfromAPI(url, apiKey) {
+    return axios
+        .get(url, {
+            params: {
+                api_key: apiKey,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => console.log(error));
+}
+
 function displayComment() {
     oldComments = document.querySelector('.old-comments');
-    comments.forEach((comment) => {
-        let li = document.createElement('li');
-        li.className = 'old-comments__container';
-        let img = document.createElement('img');
-        img.className = 'old-comments__profile-icon';
-        img.src = '/assets/images/grey-background.jpg';
-        let divContent = document.createElement('div');
-        divContent.className = 'old-comments__content';
-        let divTop = document.createElement('div');
-        divTop.className = 'old-comments__top';
-        let divName = document.createElement('div');
-        divName.className = 'old-comments__name';
-        let divDate = document.createElement('div');
-        divDate.className = 'old-comments__date';
-        let divBottom = document.createElement('div');
-        divBottom.className = 'old-comments__bottom';
-        let divComment = document.createElement('div');
-        divComment.className = 'old-comments__comment';
+    getCommentsfromAPI(
+        'https://project-1-api.herokuapp.com/comments',
+        'e7ca0048-5bad-422a-8f23-f7677987cda6'
+    ).then((commentsFromAPI) => {
+        //console.log(commentsFromAPI);
+        commentsFromAPI.forEach((comment) => {
+            let li = document.createElement('li');
+            li.className = 'old-comments__container';
+            let img = document.createElement('img');
+            img.className = 'old-comments__profile-icon';
+            img.src = '/assets/images/grey-background.jpg';
+            let divContent = document.createElement('div');
+            divContent.className = 'old-comments__content';
+            let divTop = document.createElement('div');
+            divTop.className = 'old-comments__top';
+            let divName = document.createElement('div');
+            divName.className = 'old-comments__name';
+            let divDate = document.createElement('div');
+            divDate.className = 'old-comments__date';
+            let divBottom = document.createElement('div');
+            divBottom.className = 'old-comments__bottom';
+            let divComment = document.createElement('div');
+            divComment.className = 'old-comments__comment';
 
-        divName.textContent = comment.name;
-        divDate.textContent = comment.date;
-        divComment.textContent = comment.comment;
+            divName.textContent = comment.name;
+            divDate.textContent = comment.date;
+            divComment.textContent = comment.comment;
 
-        divTop.appendChild(divName);
-        divTop.appendChild(divDate);
-        divBottom.appendChild(divComment);
-        divContent.appendChild(divTop);
-        divContent.appendChild(divBottom);
-        li.appendChild(img);
-        li.appendChild(divContent);
-        oldComments.appendChild(li);
+            divTop.appendChild(divName);
+            divTop.appendChild(divDate);
+            divBottom.appendChild(divComment);
+            divContent.appendChild(divTop);
+            divContent.appendChild(divBottom);
+            li.appendChild(img);
+            li.appendChild(divContent);
+            oldComments.appendChild(li);
+        });
     });
 }
 displayComment();
@@ -70,6 +87,7 @@ function setDefaultImage() {
 }
 setDefaultImage();
 
+// Use this function to add a new comment to the comments array
 function addNewComment() {
     // Get all necessary values to variables
     let form = document.querySelector('#new-comment-form');
@@ -102,9 +120,8 @@ function addNewComment() {
     // I am preventing the default behaviour so I can do checks
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        console.log(formName.value);
-        let formNameTrim = formName.value.trim();
-        let formCommentTrim = formComment.value.trim();
+        let formNameTrim = event.target.formName.value.trim();
+        let formCommentTrim = event.target.formComment.value.trim();
 
         let errorStatus = false;
         if (formNameTrim === '') {
@@ -132,6 +149,7 @@ function addNewComment() {
             comment: formComment.value,
         };
         comments.unshift(comment);
+        console.log(comments);
 
         // Clear the form, clear the comments and re construct it
         formName.value = formComment.value = '';
