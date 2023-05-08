@@ -350,5 +350,18 @@
                 font-size: toRem($font-tablet-body-px);
             }
         }
+
+        &__social {
+            display: flex;
+            margin-top: 0.25rem;
+        }
+        &__like {
+            margin-right: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        &__icon {
+            margin-left: 0.5rem;
+        }
     }
 }

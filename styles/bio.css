@@ -348,4 +348,16 @@
   .comments .old-comments__date {
     font-size: 0.875rem;
   }
+}
+.comments .old-comments__social {
+  display: flex;
+  margin-top: 0.25rem;
+}
+.comments .old-comments__like {
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.comments .old-comments__icon {
+  margin-left: 0.5rem;
 }/*# sourceMappingURL=bio.css.map */

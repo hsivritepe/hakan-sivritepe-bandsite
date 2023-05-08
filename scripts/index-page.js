@@ -19,11 +19,14 @@ comments = [
     },
 ];
 
-function getCommentsfromAPI(url, apiKey) {
+/*
+ *  Create the functions related to API requests
+ */
+function getCommentsfromAPI(url, api_key) {
     axios
         .get(url, {
             params: {
-                api_key: apiKey,
+                api_key,
             },
         })
         .then((response) => {
@@ -36,7 +39,7 @@ function getCommentsfromAPI(url, apiKey) {
         .catch((error) => console.log(error));
 }
 
-function createNewCommentWithAPI(url, apiKey, commentData) {
+function createNewCommentWithAPI(url, api_key, commentData) {
     return axios
         .post(
             url,
@@ -46,7 +49,7 @@ function createNewCommentWithAPI(url, apiKey, commentData) {
             },
             {
                 params: {
-                    api_key: apiKey,
+                    api_key,
                 },
             }
         )
@@ -56,8 +59,36 @@ function createNewCommentWithAPI(url, apiKey, commentData) {
         .catch((error) => console.error(error));
 }
 
+function incrementTheLikeOnACommentWithAPI(url, api_key, id) {
+    axios
+        .put(
+            url + id + '/like',
+            {},
+            {
+                params: {
+                    api_key,
+                },
+            }
+        )
+        .then(() => {
+            getCommentsfromAPI(
+                'https://project-1-api.herokuapp.com/comments',
+                'e7ca0048-5bad-422a-8f23-f7677987cda6'
+            );
+        });
+}
+// incrementTheLikeOnACommentWithAPI(
+//     'https://project-1-api.herokuapp.com/comments/',
+//     'e7ca0048-5bad-422a-8f23-f7677987cda6',
+//     '566ca813-98e4-4738-9c09-0497dcaa22cd'
+// );
+
+/*
+ *   Create the functions to manipulate the HTML
+ */
 function displayCommentInHTML(commentsFromPromise) {
     oldComments = document.querySelector('.old-comments');
+    oldComments.innerHTML = '';
 
     commentsFromPromise.forEach((comment) => {
         let li = document.createElement('li');
@@ -77,19 +108,46 @@ function displayCommentInHTML(commentsFromPromise) {
         divBottom.className = 'old-comments__bottom';
         let divComment = document.createElement('div');
         divComment.className = 'old-comments__comment';
+        let divLikeDelete = document.createElement('div');
+        divLikeDelete.className = 'old-comments__social';
+        let divLike = document.createElement('div');
+        divLike.className = 'old-comments__like';
+        let imgLike = document.createElement('img');
+        imgLike.className = 'old-comments__icon';
+        imgLike.src = '/assets/icons/svg/icon-like.svg';
+        let imgDelete = document.createElement('img');
+        imgDelete.className = 'old-comments__delete';
+        imgDelete.src = '/assets/icons/svg/icon-delete.svg';
 
         divName.textContent = comment.name;
         divDate.textContent = comment.date;
         divComment.textContent = comment.comment;
+        divLike.textContent = comment.likes;
+        imgLike.id = imgDelete.id = divLike.id = comment.id;
 
         divTop.appendChild(divName);
         divTop.appendChild(divDate);
         divBottom.appendChild(divComment);
         divContent.appendChild(divTop);
         divContent.appendChild(divBottom);
+        divLikeDelete.appendChild(divLike);
+        divLike.appendChild(imgLike);
+        divLikeDelete.appendChild(imgDelete);
+        divContent.appendChild(divLikeDelete);
         li.appendChild(img);
         li.appendChild(divContent);
         oldComments.appendChild(li);
+
+        imgLike.addEventListener('click', () => {
+            incrementTheLikeOnACommentWithAPI(
+                'https://project-1-api.herokuapp.com/comments/',
+                'e7ca0048-5bad-422a-8f23-f7677987cda6',
+                imgLike.id
+            );
+        });
+        imgDelete.addEventListener('click', () => {
+            console.log(imgDelete.id);
+        });
     });
 }
 
