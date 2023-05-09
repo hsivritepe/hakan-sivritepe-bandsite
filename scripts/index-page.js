@@ -1,24 +1,3 @@
-comments = [
-    {
-        name: 'Connor Walton',
-        date: '02/17/2021',
-        comment:
-            'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.',
-    },
-    {
-        name: 'Emilie Beach',
-        date: '01/09/2021',
-        comment:
-            'I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.',
-    },
-    {
-        name: 'Miles Acosta',
-        date: '12/20/2020',
-        comment:
-            "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-    },
-];
-
 /*
  *  Create the functions related to API requests
  */
@@ -33,7 +12,6 @@ function getCommentsfromAPI(url, api_key) {
             let sortedData = response.data.sort((a, b) => {
                 return b.timestamp - a.timestamp;
             });
-            console.log(sortedData);
             displayCommentInHTML(sortedData);
         })
         .catch((error) => console.log(error));
@@ -53,9 +31,6 @@ function createNewCommentWithAPI(url, api_key, commentData) {
                 },
             }
         )
-        .then((response) => {
-            console.log(response);
-        })
         .catch((error) => console.error(error));
 }
 
@@ -77,14 +52,24 @@ function incrementTheLikeOnACommentWithAPI(url, api_key, id) {
             );
         });
 }
-// incrementTheLikeOnACommentWithAPI(
-//     'https://project-1-api.herokuapp.com/comments/',
-//     'e7ca0048-5bad-422a-8f23-f7677987cda6',
-//     '566ca813-98e4-4738-9c09-0497dcaa22cd'
-// );
+
+function deleteTheCommentWithAPI(url, api_key, id) {
+    axios
+        .delete(url + id, {
+            params: {
+                api_key,
+            },
+        })
+        .then(() => {
+            getCommentsfromAPI(
+                'https://project-1-api.herokuapp.com/comments',
+                'e7ca0048-5bad-422a-8f23-f7677987cda6'
+            );
+        });
+}
 
 /*
- *   Create the functions to manipulate the HTML
+ *   Create the functions to manipulate the DOM
  */
 function displayCommentInHTML(commentsFromPromise) {
     oldComments = document.querySelector('.old-comments');
@@ -146,7 +131,11 @@ function displayCommentInHTML(commentsFromPromise) {
             );
         });
         imgDelete.addEventListener('click', () => {
-            console.log(imgDelete.id);
+            deleteTheCommentWithAPI(
+                'https://project-1-api.herokuapp.com/comments/',
+                'e7ca0048-5bad-422a-8f23-f7677987cda6',
+                imgDelete.id
+            );
         });
     });
 }
@@ -156,7 +145,9 @@ getCommentsfromAPI(
     'e7ca0048-5bad-422a-8f23-f7677987cda6'
 );
 
-// Getting the profile icons and setting the default image if there is no image
+/*
+ * Getting the profile icons and setting the default image if there is no image
+ */
 function setDefaultImage() {
     profileIcons = document.querySelectorAll(
         '.old-comments__profile-icon'
@@ -170,15 +161,21 @@ function setDefaultImage() {
 }
 setDefaultImage();
 
-// Use this function to add a new comment to the comments array
+/*
+ * Use this function to add a new comment to the comments array
+ */
 function addNewCommentToHTML() {
-    // Get all necessary values to variables
+    /*
+     * Get all necessary values to variables
+     */
     let form = document.querySelector('#new-comment-form');
     let formName = document.querySelector('#formName');
     let formComment = document.querySelector('#formComment');
     let todayDate = new Date().toLocaleDateString();
 
-    // When I am done with the field, it is checking for error
+    /*
+     * When I am done with the field, it is checking for error
+     */
     formName.addEventListener('focusout', () => {
         if (formName.value.length > 0) {
             formName.classList.remove(
@@ -200,7 +197,9 @@ function addNewCommentToHTML() {
         }
     });
 
-    // I am preventing the default behaviour so I can do checks
+    /*
+     * I am preventing the default behaviour so I can do checks
+     */
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         let formNameTrim = event.target.formName.value.trim();
@@ -225,7 +224,9 @@ function addNewCommentToHTML() {
             'new-comment--input-error-state'
         );
 
-        // Construct the new comment and add it to the top
+        /*
+         * Construct the new comment and add it to the top
+         */
         createNewCommentWithAPI(
             'https://project-1-api.herokuapp.com/comments',
             'e7ca0048-5bad-422a-8f23-f7677987cda6',
@@ -240,10 +241,17 @@ function addNewCommentToHTML() {
             )
         );
 
-        // Clear the form, clear the comments and re construct it
+        /*
+         * Clear the form, clear the comments and re construct it
+         */
         formName.value = formComment.value = '';
         let oldComments = document.querySelector('.old-comments');
         oldComments.innerHTML = '';
     });
 }
 addNewCommentToHTML();
+
+getCommentsfromAPI(
+    'https://project-1-api.herokuapp.com/comments',
+    'e7ca0048-5bad-422a-8f23-f7677987cda6'
+);
