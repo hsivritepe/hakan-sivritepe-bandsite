@@ -163,7 +163,7 @@
                 }
             }
 
-            &:hover {
+            &:not(:first-child):hover {
                 background-color: $secondary-color-alabaster;
                 cursor: pointer;
             }

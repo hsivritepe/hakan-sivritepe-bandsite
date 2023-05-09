@@ -159,7 +159,7 @@
   .show-list-tablet__row--selected:hover {
     background-color: #e1e1e1 !important;
   }
-  .show-list-tablet__row:hover {
+  .show-list-tablet__row:not(:first-child):hover {
     background-color: #fafafa;
     cursor: pointer;
   }
