@@ -85,6 +85,19 @@
         border-bottom: 1px solid $secondary-color-mercury;
         margin-bottom: 1rem;
         list-style-type: none;
+        cursor: pointer;
+
+        &--selected {
+            background-color: $secondary-color-mercury;
+            &:hover {
+                background-color: $secondary-color-mercury !important;
+            }
+        }
+
+        &:hover {
+            background-color: $secondary-color-alabaster;
+            cursor: pointer;
+        }
     }
     &__item {
         padding: 0 0 1rem 0;

@@ -2,7 +2,7 @@
  * Get the showdates from the API
  */
 function getTheShowDatesFromAPI(url, api_key) {
-    axios
+    return axios
         .get(url, {
             params: {
                 api_key,
@@ -17,7 +17,9 @@ function getTheShowDatesFromAPI(url, api_key) {
 getTheShowDatesFromAPI(
     'https://project-1-api.herokuapp.com/showdates',
     'e7ca0048-5bad-422a-8f23-f7677987cda6'
-);
+).then(() => {
+    selectShow();
+});
 
 function displayShowListHTML(listOfShows) {
     showList = document.querySelector('.show-list');
@@ -104,19 +106,38 @@ function displayShowListHTMLTablet(listOfShows) {
 }
 
 function selectShow() {
-    let showRows = document.querySelectorAll(
+    let showRowsTablet = document.querySelectorAll(
         '.show-list-tablet__row'
     );
-    let selectedRow = null;
+    let selectedRowTablet = null;
+    console.log(showRowsTablet);
 
-    showRows.forEach((row) => {
+    showRowsTablet.forEach((row) => {
         row.addEventListener('click', () => {
-            if (selectedRow !== null) {
-                selectedRow.classList.remove(
+            console.log(row);
+            if (selectedRowTablet !== null) {
+                selectedRowTablet.classList.remove(
                     'show-list-tablet__row--selected'
                 );
             }
             row.classList.add('show-list-tablet__row--selected');
+            selectedRowTablet = row;
+        });
+    });
+
+    let showRows = document.querySelectorAll('.show-list__container');
+    let selectedRow = null;
+    console.log(showRows);
+
+    showRows.forEach((row) => {
+        row.addEventListener('click', () => {
+            console.log(row);
+            if (selectedRow !== null) {
+                selectedRow.classList.remove(
+                    'show-list__container--selected'
+                );
+            }
+            row.classList.add('show-list__container--selected');
             selectedRow = row;
         });
     });
