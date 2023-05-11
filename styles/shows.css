@@ -1,14 +1,17 @@
 @font-face {
-  font-family: "Avenir Next Regular";
-  src: url("/assets/fonts/AvenirNextLTPro-Regular.otf") format("opentype");
+  font-family: "Avenir Next";
+  src: url("/assets/fonts/AvenirNextLTPro-Regular.otf") format("opentype"), url("/assets/fonts/alternative-files/AvenirNextLTPro.ttf") format("truetype");
+  font-weight: 400;
 }
 @font-face {
-  font-family: "Avenir Next Demi";
-  src: url("/assets/fonts/AvenirNextLTPro-Demi.otf") format("opentype");
+  font-family: "Avenir Next";
+  src: url("/assets/fonts/AvenirNextLTPro-Demi.otf") format("opentype"), url("/assets/fonts/alternative-files/AvenirNextLTProDemi.ttf") format(truetype);
+  font-weight: 600;
 }
 @font-face {
-  font-family: "Avenir Next Bold";
-  src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype");
+  font-family: "Avenir Next";
+  src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype"), url("/assets/fonts/alternative-files/AvenirNextLTProBold.ttf") format(truetype);
+  font-weight: 700;
 }
 .banner {
   background: url("/assets/images/hero-shows.jpg") rgba(50, 50, 50, 0.5);
@@ -52,7 +55,7 @@
   }
 }
 .show-content__title {
-  font-family: "Avenir Next Demi", sans-serif;
+  font-weight: 600;
   font-size: 2.25rem;
   line-height: 2.25rem;
   padding: 3rem 1rem 2rem;
@@ -76,7 +79,7 @@
 }
 @media (min-width: 768px) {
   .show-list {
-    display: none;
+    padding: 3.5rem 3.5rem 1rem;
   }
 }
 .show-list__container {
@@ -84,6 +87,14 @@
   margin-bottom: 1rem;
   list-style-type: none;
   cursor: pointer;
+}
+@media (min-width: 768px) {
+  .show-list__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+  }
 }
 .show-list__container--selected {
   background-color: #e1e1e1;
@@ -98,12 +109,18 @@
 .show-list__item {
   padding: 0 0 1rem 0;
 }
+@media (min-width: 768px) {
+  .show-list__item {
+    padding: 0;
+    width: 24%;
+  }
+}
 .show-list__show-link {
-  font-family: "Avenir Next Demi", sans-serif;
+  font-weight: 600;
   text-transform: uppercase;
   text-align: center;
   color: #ffffff;
-  height: 40px;
+  height: 2.5rem;
   width: 100%;
   background-color: #323232;
   border: none;
@@ -115,8 +132,9 @@
 }
 @media (min-width: 768px) {
   .show-list__show-link {
+    width: unset;
+    margin: 1rem 0;
     padding: 0 2rem;
-    min-width: 150px;
   }
 }
 .show-list__show-link:hover {
@@ -124,88 +142,16 @@
   cursor: pointer;
 }
 .show-list--title {
-  font-family: "Avenir Next Demi", sans-serif;
+  font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
   color: #afafaf;
 }
+@media (min-width: 768px) {
+  .show-list--title {
+    display: none;
+  }
+}
 .show-list--bold {
-  font-family: "Avenir Next Demi", sans-serif;
-}
-
-.show-list-tablet {
-  display: none;
-  flex-grow: 2;
-}
-@media (min-width: 768px) {
-  .show-list-tablet {
-    display: flex;
-    flex-direction: column;
-    padding: 0 3.5rem 1rem;
-  }
-  .show-list-tablet__title {
-    font-family: "Avenir Next Demi", sans-serif;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    color: #afafaf;
-    width: 24%;
-  }
-  .show-list-tablet__item {
-    width: 24%;
-  }
-  .show-list-tablet--bold {
-    font-family: "Avenir Next Demi", sans-serif;
-  }
-  .show-list-tablet__row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0 1rem;
-    border-bottom: 1px solid #e1e1e1;
-    list-style-type: none;
-  }
-  .show-list-tablet__row--selected {
-    background-color: #e1e1e1;
-  }
-  .show-list-tablet__row--selected:hover {
-    background-color: #e1e1e1 !important;
-  }
-  .show-list-tablet__row:not(:first-child):hover {
-    background-color: #fafafa;
-    cursor: pointer;
-  }
-  .show-list-tablet__row--title {
-    border-bottom: none;
-    padding: 3rem 0 1rem;
-  }
-  .show-list-tablet__show-link {
-    font-family: "Avenir Next Demi", sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    color: #ffffff;
-    height: 40px;
-    background-color: #323232;
-    border: none;
-    border-radius: 0.25rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-@media (min-width: 768px) and (min-width: 768px) {
-  .show-list-tablet__show-link {
-    padding: 0 2rem;
-    min-width: 150px;
-  }
-}
-@media (min-width: 768px) {
-  .show-list-tablet__show-link:hover {
-    background-color: #000000;
-    cursor: pointer;
-  }
-}
-@media (min-width: 1280px) {
-  .show-list-tablet {
-    padding: 1rem 7.5rem 1rem;
-  }
+  font-weight: 600;
 }/*# sourceMappingURL=shows.css.map */

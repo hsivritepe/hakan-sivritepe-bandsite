@@ -11,7 +11,6 @@ function getTheShowDatesFromAPI(url, api_key) {
         .then((response) => {
             console.log(response.data);
             displayShowListHTML(response.data);
-            displayShowListHTMLTablet(response.data);
         });
 }
 getTheShowDatesFromAPI(
@@ -24,107 +23,56 @@ getTheShowDatesFromAPI(
 function displayShowListHTML(listOfShows) {
     showList = document.querySelector('.show-list');
     listOfShows.forEach((show) => {
-        let elementLi = document.createElement('li');
-        elementLi.className = 'show-list__container';
-        let divDate = document.createElement('div');
-        divDate.className = 'show-list__item';
-        let divVenue = document.createElement('div');
-        divVenue.className = 'show-list__item';
-        let divLocation = document.createElement('div');
-        divLocation.className = 'show-list__item';
-        let divBuyTickets = document.createElement('div');
-        divBuyTickets.className = 'show-list__show-link';
-        divBuyTickets.textContent = 'buy tickets';
-
         let curDate = new Date();
         curDate.setTime(show.date);
 
-        divDate.innerHTML = `<div class="show-list--title">DATE</div><div class="show-list--bold">${curDate.toLocaleDateString()}</div>`;
-        divVenue.innerHTML = `<div class="show-list--title">VENUE</div>${show.place}`;
-        divLocation.innerHTML = `<div class="show-list--title">LOCATION</div>${show.location}`;
+        let elementLi = document.createElement('li');
+        elementLi.className = 'show-list__container';
 
+        let divDate = document.createElement('p');
+        divDate.className = 'show-list__item';
+        let divDateTitle = document.createElement('p');
+        divDateTitle.className = 'show-list--title';
+        divDateTitle.textContent = 'DATE';
+        let divDateBold = document.createElement('p');
+        divDateBold.className = 'show-list--bold';
+        divDateBold.textContent = curDate.toLocaleDateString();
+        divDate.appendChild(divDateTitle);
+        divDate.appendChild(divDateBold);
         elementLi.appendChild(divDate);
+
+        let divVenue = document.createElement('p');
+        divVenue.className = 'show-list__item';
+        let divVenueTitle = document.createElement('p');
+        divVenueTitle.className = 'show-list--title';
+        divVenueTitle.textContent = 'VENUE';
+        let divVenuePlace = document.createElement('p');
+        divVenuePlace.textContent = show.place;
+        divVenue.appendChild(divVenueTitle);
+        divVenue.appendChild(divVenuePlace);
         elementLi.appendChild(divVenue);
+
+        let divLocation = document.createElement('p');
+        divLocation.className = 'show-list__item';
+        let divLocationTitle = document.createElement('p');
+        divLocationTitle.className = 'show-list--title';
+        divLocationTitle.textContent = 'LOCATION';
+        let divLocationLocation = document.createElement('p');
+        divLocationLocation.textContent = show.location;
+        divLocation.appendChild(divLocationTitle);
+        divLocation.appendChild(divLocationLocation);
         elementLi.appendChild(divLocation);
+
+        let divBuyTickets = document.createElement('p');
+        divBuyTickets.className = 'show-list__show-link';
+        divBuyTickets.textContent = 'buy tickets';
+
         elementLi.appendChild(divBuyTickets);
         showList.appendChild(elementLi);
     });
 }
 
-function displayShowListHTMLTablet(listOfShows) {
-    showListTablet = document.querySelector('.show-list-tablet');
-    let elementLi = document.createElement('li');
-    elementLi.className = 'show-list-tablet__row';
-    elementLi.classList.add('show-list-tablet__row--title');
-    let divDate = document.createElement('div');
-    divDate.className = 'show-list-tablet__title';
-    let divVenue = document.createElement('div');
-    divVenue.className = 'show-list-tablet__title';
-    let divLocation = document.createElement('div');
-    divLocation.className = 'show-list-tablet__title';
-    let divBuyTickets = document.createElement('div');
-    divBuyTickets.className = 'show-list-tablet__title';
-
-    divDate.textContent = 'DATE';
-    divVenue.textContent = 'VENUE';
-    divLocation.textContent = 'LOCATION';
-    divBuyTickets.textContent = '';
-
-    elementLi.appendChild(divDate);
-    elementLi.appendChild(divVenue);
-    elementLi.appendChild(divLocation);
-    elementLi.appendChild(divBuyTickets);
-    showListTablet.appendChild(elementLi);
-
-    listOfShows.forEach((show) => {
-        elementLi = document.createElement('li');
-        elementLi.className = 'show-list-tablet__row';
-        let divDate = document.createElement('div');
-        divDate.className = 'show-list-tablet__item';
-        let divVenue = document.createElement('div');
-        divVenue.className = 'show-list-tablet__item';
-        let divLocation = document.createElement('div');
-        divLocation.className = 'show-list-tablet__item';
-        let divBuyTickets = document.createElement('div');
-        divBuyTickets.className =
-            'show-list-tablet__item show-list-tablet__show-link';
-        divBuyTickets.textContent = 'buy tickets';
-
-        let curDate = new Date();
-        curDate.setTime(show.date);
-
-        divDate.innerHTML = `<div class="show-list-tablet--bold">${curDate.toLocaleDateString()}</div>`;
-        divVenue.innerHTML = `${show.place}`;
-        divLocation.innerHTML = `${show.location}`;
-
-        elementLi.appendChild(divDate);
-        elementLi.appendChild(divVenue);
-        elementLi.appendChild(divLocation);
-        elementLi.appendChild(divBuyTickets);
-        showListTablet.appendChild(elementLi);
-    });
-}
-
 function selectShow() {
-    let showRowsTablet = document.querySelectorAll(
-        '.show-list-tablet__row'
-    );
-    let selectedRowTablet = null;
-    console.log(showRowsTablet);
-
-    showRowsTablet.forEach((row) => {
-        row.addEventListener('click', () => {
-            console.log(row);
-            if (selectedRowTablet !== null) {
-                selectedRowTablet.classList.remove(
-                    'show-list-tablet__row--selected'
-                );
-            }
-            row.classList.add('show-list-tablet__row--selected');
-            selectedRowTablet = row;
-        });
-    });
-
     let showRows = document.querySelectorAll('.show-list__container');
     let selectedRow = null;
     console.log(showRows);

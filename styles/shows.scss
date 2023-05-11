@@ -4,8 +4,6 @@
 .banner {
     background: url('/assets/images/hero-shows.jpg')
         rgba($primary-color-black, 0.5);
-    // align-items: flex-start;
-    // justify-content: flex-start;
 
     @include tablet {
     }
@@ -53,7 +51,7 @@
     }
 
     &__title {
-        font-family: 'Avenir Next Demi', sans-serif;
+        font-weight: 600;
         font-size: toRem($font-mobile-page-header-px);
         line-height: toRem($line-height-mobile-section-header-px);
         padding: toRem($padding-mobile-before-headlines-px)
@@ -78,7 +76,8 @@
     margin: 0;
 
     @include tablet {
-        display: none;
+        padding: toRem($padding-tablet-between-components-px)
+            toRem($padding-tablet-between-components-px) 1rem;
     }
 
     &__container {
@@ -86,6 +85,13 @@
         margin-bottom: 1rem;
         list-style-type: none;
         cursor: pointer;
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0;
+        }
 
         &--selected {
             background-color: $secondary-color-mercury;
@@ -101,13 +107,18 @@
     }
     &__item {
         padding: 0 0 1rem 0;
+
+        @include tablet {
+            padding: 0;
+            width: 24%;
+        }
     }
     &__show-link {
-        font-family: 'Avenir Next Demi', sans-serif;
+        font-weight: 600;
         text-transform: uppercase;
         text-align: center;
         color: $primary-color-white;
-        height: 40px;
+        height: toRem(40);
         width: 100%;
         background-color: $primary-color-black;
         border: none;
@@ -118,8 +129,9 @@
         justify-content: center;
 
         @include tablet {
-            padding: 0 toRem(32);
-            min-width: 150px;
+            width: unset;
+            margin: 1rem 0;
+            padding: 0 2rem;
         }
     }
     &__show-link:hover {
@@ -128,90 +140,16 @@
     }
 
     &--title {
-        font-family: 'Avenir Next Demi', sans-serif;
+        font-weight: 600;
         font-size: 0.9rem;
         text-transform: uppercase;
         color: $primary-color-silver;
+
+        @include tablet {
+            display: none;
+        }
     }
     &--bold {
-        font-family: 'Avenir Next Demi', sans-serif;
-    }
-}
-
-.show-list-tablet {
-    display: none;
-    flex-grow: 2;
-
-    @include tablet {
-        display: flex;
-        flex-direction: column;
-        padding: 0 toRem($padding-tablet-between-components-px) 1rem;
-
-        &__title {
-            font-family: 'Avenir Next Demi', sans-serif;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            color: $primary-color-silver;
-            width: 24%;
-        }
-        &__item {
-            width: 24%;
-        }
-        &--bold {
-            font-family: 'Avenir Next Demi', sans-serif;
-        }
-
-        &__row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0 1rem;
-            border-bottom: 1px solid $secondary-color-mercury;
-            list-style-type: none;
-
-            &--selected {
-                background-color: $secondary-color-mercury;
-                &:hover {
-                    background-color: $secondary-color-mercury !important;
-                }
-            }
-
-            &:not(:first-child):hover {
-                background-color: $secondary-color-alabaster;
-                cursor: pointer;
-            }
-
-            &--title {
-                border-bottom: none;
-                padding: 3rem 0 1rem;
-            }
-        }
-
-        &__show-link {
-            font-family: 'Avenir Next Demi', sans-serif;
-            text-transform: uppercase;
-            text-align: center;
-            color: $primary-color-white;
-            height: 40px;
-            background-color: $primary-color-black;
-            border: none;
-            border-radius: toRem(4);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            @include tablet {
-                padding: 0 toRem(32);
-                min-width: 150px;
-            }
-        }
-        &__show-link:hover {
-            background-color: $secondary-color-darkblack;
-            cursor: pointer;
-        }
-    }
-    @include desktop {
-        padding: 1rem toRem($padding-desktop-between-components-px)
-            1rem;
+        font-weight: 600;
     }
 }

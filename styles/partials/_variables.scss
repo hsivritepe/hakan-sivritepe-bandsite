@@ -5,19 +5,28 @@
 
 //FONT
 @font-face {
-    font-family: 'Avenir Next Regular';
+    font-family: 'Avenir Next';
     src: url('/assets/fonts/AvenirNextLTPro-Regular.otf')
-        format('opentype');
+            format('opentype'),
+        url('/assets/fonts/alternative-files/AvenirNextLTPro.ttf')
+            format('truetype');
+    font-weight: 400;
 }
 @font-face {
-    font-family: 'Avenir Next Demi';
+    font-family: 'Avenir Next';
     src: url('/assets/fonts/AvenirNextLTPro-Demi.otf')
-        format('opentype');
+            format('opentype'),
+        url('/assets/fonts/alternative-files/AvenirNextLTProDemi.ttf')
+            format(truetype);
+    font-weight: 600;
 }
 @font-face {
-    font-family: 'Avenir Next Bold';
+    font-family: 'Avenir Next';
     src: url('/assets/fonts/AvenirNextLTPro-Bold.otf')
-        format('opentype');
+            format('opentype'),
+        url('/assets/fonts/alternative-files/AvenirNextLTProBold.ttf')
+            format(truetype);
+    font-weight: 700;
 }
 
 // BREAKPOINTS

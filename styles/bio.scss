@@ -2,8 +2,9 @@
 @use 'partials/mixins' as *;
 
 .banner {
-    background: url('/assets/images/hero-bio.jpg')
-        rgba($primary-color-black, 0.5);
+    background-image: url('/assets/images/hero-bio.jpg'),
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-blend-mode: overlay;
 }
 
 .content {
@@ -20,7 +21,7 @@
     }
 
     &__title-page-header {
-        font-family: 'Avenir Next Demi', sans-serif;
+        font-weight: 600;
         font-size: toRem($font-mobile-page-header-px);
         padding: toRem($padding-mobile-before-headlines-px) 0
             toRem($padding-mobile-after-headlines-px) 0;
@@ -43,7 +44,7 @@
     }
 
     &__title-section-header {
-        font-family: 'Avenir Next Demi', sans-serif;
+        font-weight: 600;
         font-size: toRem($font-mobile-section-header-px);
         line-height: toRem($line-height-mobile-section-header-px);
         padding: 2rem 0 1rem 0;
@@ -63,7 +64,7 @@
     }
 
     &__title-subheader {
-        font-weight: bold;
+        font-weight: 700;
         font-size: toRem($font-mobile-subheader-px);
         line-height: toRem($line-height-mobile-subheader-px);
         padding: 0 0 toRem($padding-mobile-between-components-px) 0;
@@ -83,7 +84,7 @@
 
 .quote {
     &__title {
-        font-family: 'Avenir Next Demi', sans-serif;
+        font-weight: 600;
         font-size: toRem($font-mobile-quote-title-px);
         line-height: toRem($line-height-mobile-quote-title-px);
         padding: 1rem 0 0.5rem 0;
@@ -96,8 +97,8 @@
     }
 
     &__auther {
+        font-weight: 600;
         font-size: toRem($font-mobile-quote-author-px);
-        font-family: 'Avenir Next Demi', sans-serif;
 
         @include tablet {
             font-size: toRem($font-tablet-quote-author-px);
@@ -110,8 +111,8 @@
     padding: 0 0 toRem($padding-mobile-after-headlines-px) 0;
 
     &__title {
+        font-weight: 600;
         font-size: toRem($font-mobile-paragraph-title-px);
-        font-family: 'Avenir Next Demi', sans-serif;
         padding: 2rem 0 0.75rem 0;
 
         @include tablet {
@@ -149,7 +150,7 @@
     }
 
     &__title-section-header {
-        font-family: 'Avenir Next Demi', sans-serif;
+        font-weight: 600;
         font-size: toRem($font-mobile-section-header-px);
         padding: toRem($padding-mobile-after-headlines-px) 0
             toRem($padding-mobile-after-headlines-px) 0;
@@ -206,7 +207,7 @@
     }
 
     &__title-section-header {
-        font-family: 'Avenir Next Demi', sans-serif;
+        font-weight: 600;
         font-size: toRem($font-mobile-section-header-px);
         padding: toRem($padding-mobile-after-headlines-px) 0
             toRem($padding-mobile-after-headlines-px) 0;
@@ -268,14 +269,14 @@
         }
 
         &__form-label {
-            font-family: 'Avenir Next Demi', sans-serif;
+            font-weight: 600;
             color: $primary-color-silver;
             text-transform: uppercase;
             margin-bottom: toRem(8);
         }
 
         &__form-button {
-            font-family: 'Avenir Next Demi', sans-serif;
+            font-weight: 600;
             color: $primary-color-white;
             height: 40px;
             width: 100%;
@@ -332,7 +333,7 @@
             justify-content: space-between;
         }
         &__name {
-            font-family: 'Avenir Next Demi', sans-serif;
+            font-weight: 600;
             color: $primary-color-black;
             font-size: toRem($font-mobile-body-px);
             margin-bottom: toRem(8);

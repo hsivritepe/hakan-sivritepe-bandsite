@@ -85,17 +85,17 @@ function displayCommentInHTML(commentsFromPromise) {
         divContent.className = 'old-comments__content';
         let divTop = document.createElement('div');
         divTop.className = 'old-comments__top';
-        let divName = document.createElement('div');
+        let divName = document.createElement('p');
         divName.className = 'old-comments__name';
-        let divDate = document.createElement('div');
+        let divDate = document.createElement('p');
         divDate.className = 'old-comments__date';
         let divBottom = document.createElement('div');
         divBottom.className = 'old-comments__bottom';
-        let divComment = document.createElement('div');
+        let divComment = document.createElement('p');
         divComment.className = 'old-comments__comment';
         let divLikeDelete = document.createElement('div');
         divLikeDelete.className = 'old-comments__social';
-        let divLike = document.createElement('div');
+        let divLike = document.createElement('p');
         divLike.className = 'old-comments__like';
         let imgLike = document.createElement('img');
         imgLike.className = 'old-comments__icon';
@@ -144,22 +144,6 @@ getCommentsfromAPI(
     'https://project-1-api.herokuapp.com/comments',
     'e7ca0048-5bad-422a-8f23-f7677987cda6'
 );
-
-/*
- * Getting the profile icons and setting the default image if there is no image
- */
-function setDefaultImage() {
-    profileIcons = document.querySelectorAll(
-        '.old-comments__profile-icon'
-    );
-    profileIcons.forEach((icon) => {
-        getSrc = icon.getAttribute('src');
-        if (!getSrc) {
-            icon.src = '/assets/images/grey-background.jpg';
-        }
-    });
-}
-setDefaultImage();
 
 /*
  * Use this function to add a new comment to the comments array
