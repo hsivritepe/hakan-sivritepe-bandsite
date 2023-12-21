@@ -1,9 +1,5 @@
 <br/>
 <p align="center">
-  <a href="https://github.com/hsivritepe/hakan-sivritepe-bandsite">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
   <h3 align="center">Bandsite</h3>
 
   <p align="center">
